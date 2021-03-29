@@ -2,7 +2,7 @@
 
 namespace LawTechTeam.Models
 {
-    public class Item
+    public class Survey
     {
         public string Id { get; set; }
         public string Text { get; set; }

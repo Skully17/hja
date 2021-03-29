@@ -6,10 +6,10 @@ using Xamarin.Forms;
 
 namespace LawTechTeam.ViewModels
 {
-    [QueryProperty(nameof(ItemId), nameof(ItemId))]
-    public class ItemDetailViewModel : BaseViewModel
+    [QueryProperty(nameof(SurveyId), nameof(SurveyId))]
+    public class SurveyDetailViewModel : BaseViewModel
     {
-        private string itemId;
+        private string surveyId;
         private string text;
         private string description;
         public string Id { get; set; }
@@ -26,31 +26,31 @@ namespace LawTechTeam.ViewModels
             set => SetProperty(ref description, value);
         }
 
-        public string ItemId
+        public string SurveyId
         {
             get
             {
-                return itemId;
+                return surveyId;
             }
             set
             {
-                itemId = value;
-                LoadItemId(value);
+                surveyId = value;
+                LoadSurveyId(value);
             }
         }
 
-        public async void LoadItemId(string itemId)
+        public async void LoadSurveyId(string surveyId)
         {
             try
             {
-                var item = await DataStore.GetItemAsync(itemId);
-                Id = item.Id;
-                Text = item.Text;
-                Description = item.Description;
+                var survey = await DataStore.GetSurveyAsync(surveyId);
+                Id = survey.Id;
+                Text = survey.Text;
+                Description = survey.Description;
             }
             catch (Exception)
             {
-                Debug.WriteLine("Failed to Load Item");
+                Debug.WriteLine("Failed to Load Survey");
             }
         }
     }

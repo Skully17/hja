@@ -5,9 +5,9 @@ using Xamarin.Forms.Xaml;
 
 namespace LawTechTeam.Views
 {
-    public partial class AboutPage : ContentPage
+    public partial class ReportsPage : ContentPage
     {
-        public AboutPage()
+        public ReportsPage()
         {
             InitializeComponent();
         }

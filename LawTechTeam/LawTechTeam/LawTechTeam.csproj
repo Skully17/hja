@@ -9,4 +9,22 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\ReportsPage.xaml.cs">
+      <DependentUpon>ReportsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\NewSurveyPage.xaml.cs">
+      <DependentUpon>NewSurveyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SurveysPage.xaml.cs">
+      <DependentUpon>SurveysPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SurveyDetailPage.xaml.cs">
+      <DependentUpon>SurveyDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>
