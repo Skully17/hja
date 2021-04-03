@@ -9,8 +9,9 @@ namespace LawTechTeam.ViewModels
 {
     public class NewSurveyViewModel : BaseViewModel
     {
-        private string text;
-        private string description;
+        private string DetaineeID;
+        private string Station;
+        private string Date;
 
         public NewSurveyViewModel()
         {
@@ -22,20 +23,26 @@ namespace LawTechTeam.ViewModels
 
         private bool ValidateSave()
         {
-            return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(description);
+            return !String.IsNullOrWhiteSpace(DetaineeID)
+                && !String.IsNullOrWhiteSpace(Station)
+                && !String.IsNullOrWhiteSpace(Date);
         }
 
-        public string Text
+        public string detaineeID
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => DetaineeID;
+            set => SetProperty(ref DetaineeID, value);
         }
 
-        public string Description
+        public string station
         {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => Station;
+            set => SetProperty(ref Station, value);
+        }
+        public string date
+        {
+            get => Date;
+            set => SetProperty(ref Date, value);
         }
 
         public Command SaveCommand { get; }
@@ -52,8 +59,9 @@ namespace LawTechTeam.ViewModels
             Survey newSurvey = new Survey()
             {
                 Id = Guid.NewGuid().ToString(),
-                Text = Text,
-                Description = Description
+                DetaineeID = DetaineeID,
+                Station = Station,
+                Date = Date
             };
 
             await DataStore.AddSurveyAsync(newSurvey);

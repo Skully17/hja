@@ -10,20 +10,26 @@ namespace LawTechTeam.ViewModels
     public class SurveyDetailViewModel : BaseViewModel
     {
         private string surveyId;
-        private string text;
-        private string description;
+        private string detaineeID;
+        private string station;
+        private string date;
         public string Id { get; set; }
 
-        public string Text
+        public string DetaineeID
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => detaineeID;
+            set => SetProperty(ref detaineeID, value);
         }
 
-        public string Description
+        public string Station
         {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => station;
+            set => SetProperty(ref station, value);
+        }
+        public string Date
+        {
+            get => date;
+            set => SetProperty(ref date, value);
         }
 
         public string SurveyId
@@ -45,8 +51,9 @@ namespace LawTechTeam.ViewModels
             {
                 var survey = await DataStore.GetSurveyAsync(surveyId);
                 Id = survey.Id;
-                Text = survey.Text;
-                Description = survey.Description;
+                DetaineeID = survey.DetaineeID;
+                Station = survey.Station;
+                Date = survey.Date;
             }
             catch (Exception)
             {

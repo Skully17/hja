@@ -14,12 +14,12 @@ namespace LawTechTeam.Services
         {
             surveys = new List<Survey>()
             {
-                new Survey { Id = Guid.NewGuid().ToString(), Text = "First survey", Description="This is an survey description." },
-                new Survey { Id = Guid.NewGuid().ToString(), Text = "Second survey", Description="This is an survey description." },
-                new Survey { Id = Guid.NewGuid().ToString(), Text = "Third survey", Description="This is an survey description." },
-                new Survey { Id = Guid.NewGuid().ToString(), Text = "Fourth survey", Description="This is an survey description." },
-                new Survey { Id = Guid.NewGuid().ToString(), Text = "Fifth survey", Description="This is an survey description." },
-                new Survey { Id = Guid.NewGuid().ToString(), Text = "Sixth survey", Description="This is an survey description." }
+                new Survey { Id = Guid.NewGuid().ToString(), DetaineeID = "527972", Station = "Tooting Police Station", Date = "12/04/21" },
+                new Survey { Id = Guid.NewGuid().ToString(), DetaineeID = "527973", Station = "Tooting Police Station", Date = "12/04/21" },
+                new Survey { Id = Guid.NewGuid().ToString(), DetaineeID = "527974", Station = "Tooting Police Station", Date = "12/04/21" },
+                new Survey { Id = Guid.NewGuid().ToString(), DetaineeID = "527975", Station = "City of London Police", Date = "13/04/21" },
+                new Survey { Id = Guid.NewGuid().ToString(), DetaineeID = "527976", Station = "City of London Police", Date = "13/04/21" },
+                new Survey { Id = Guid.NewGuid().ToString(), DetaineeID = "527977", Station = "Lavender Hill Police Station", Date = "15/04/21" }
             };
         }
 
