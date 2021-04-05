@@ -12,7 +12,7 @@ namespace LawTechTeam.ViewModels
     {
         private Survey _selectedSurvey;
 
-        public ObservableCollection<Survey> Surveys { get; }
+        // public ObservableCollection<Survey> Surveys { get; }
         public Command LoadSurveysCommand { get; }
         public Command AddSurveyCommand { get; }
         public Command<Survey> SurveyTapped { get; }
@@ -20,22 +20,23 @@ namespace LawTechTeam.ViewModels
         public SurveysViewModel()
         {
             Title = "Browse";
-            Surveys = new ObservableCollection<Survey>();
-            LoadSurveysCommand = new Command(async () => await ExecuteLoadSurveysCommand());
+            // Surveys = new ObservableCollection<Survey>();
+            LoadSurveysCommand = new Command(OnAppearing);
 
             SurveyTapped = new Command<Survey>(OnSurveySelected);
 
             AddSurveyCommand = new Command(OnAddSurvey);
         }
-
-        async Task ExecuteLoadSurveysCommand()
+        /*
+        async void OnAppearing()
         {
             IsBusy = true;
 
             try
             {
+                Debug.WriteLine("this is a desprate plee");
                 Surveys.Clear();
-                var surveys = await DataStore.GetSurveysAsync(true);
+                var surveys = await App.Database.GetSurveysAsync();
                 foreach (var survey in surveys)
                 {
                     Surveys.Add(survey);
@@ -43,20 +44,21 @@ namespace LawTechTeam.ViewModels
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex);
+                Debug.WriteLine("display fail: " + ex);
             }
             finally
             {
                 IsBusy = false;
             }
         }
-
-        public void OnAppearing()
+        */
+        
+        public async void OnAppearing()
         {
             IsBusy = true;
             SelectedSurvey = null;
         }
-
+        
         public Survey SelectedSurvey
         {
             get => _selectedSurvey;
@@ -78,7 +80,7 @@ namespace LawTechTeam.ViewModels
                 return;
 
             // This will push the SurveyDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(SurveyDetailPage)}?{nameof(SurveyDetailViewModel.SurveyId)}={survey.Id}");
+            await Shell.Current.GoToAsync($"{nameof(SurveyDetailPage)}?{nameof(SurveyDetailViewModel.SurveyId)}={survey.id}");
         }
     }
 }

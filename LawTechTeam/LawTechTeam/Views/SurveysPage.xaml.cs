@@ -22,11 +22,13 @@ namespace LawTechTeam.Views
 
             BindingContext = _viewModel = new SurveysViewModel();
         }
-
-        protected override void OnAppearing()
+        
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-            _viewModel.OnAppearing();
+
+            SurveysListView.ItemsSource = await App.Database.GetSurveysAsync();
         }
+        
     }
 }

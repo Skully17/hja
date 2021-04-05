@@ -9,10 +9,22 @@ namespace LawTechTeam.ViewModels
     [QueryProperty(nameof(SurveyId), nameof(SurveyId))]
     public class SurveyDetailViewModel : BaseViewModel
     {
-        private string surveyId;
+        private int surveyId;
         private string text;
         private string description;
-        public string Id { get; set; }
+
+        public Survey Survey { get; set; }
+
+        public int Id { get; set; }
+
+        public Command DeleteSurveyCommand { get; }
+
+        public SurveyDetailViewModel()
+        {
+            Title = text;
+
+            DeleteSurveyCommand = new Command(OnDeleteSurvey);
+        }
 
         public string Text
         {
@@ -26,7 +38,7 @@ namespace LawTechTeam.ViewModels
             set => SetProperty(ref description, value);
         }
 
-        public string SurveyId
+        public int SurveyId
         {
             get
             {
@@ -39,14 +51,27 @@ namespace LawTechTeam.ViewModels
             }
         }
 
-        public async void LoadSurveyId(string surveyId)
+        public async void OnDeleteSurvey()
         {
             try
             {
-                var survey = await DataStore.GetSurveyAsync(surveyId);
-                Id = survey.Id;
-                Text = survey.Text;
-                Description = survey.Description;
+                await App.Database.DeleteSurveyAsync(Survey);
+                await Shell.Current.GoToAsync("..");
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("Failled to delete survey");
+            }
+        }
+
+        public async void LoadSurveyId(int surveyId)
+        {
+            try
+            {
+                Survey = await App.Database.GetSurveyAsync(surveyId);
+                Id = Survey.id;
+                Text = Survey.text;
+                Description = Survey.description;
             }
             catch (Exception)
             {

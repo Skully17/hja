@@ -51,12 +51,11 @@ namespace LawTechTeam.ViewModels
         {
             Survey newSurvey = new Survey()
             {
-                Id = Guid.NewGuid().ToString(),
-                Text = Text,
-                Description = Description
+                text = Text,
+                description = Description
             };
 
-            await DataStore.AddSurveyAsync(newSurvey);
+            await App.Database.SaveSurveyAsync(newSurvey);
 
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");

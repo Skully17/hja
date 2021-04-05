@@ -16,16 +16,16 @@
     -->
     <RefreshView x:DataType="local:SurveysViewModel" Command="{Binding LoadSurveysCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
         <CollectionView x:Name="SurveysListView"
-                ItemsSource="{Binding Surveys}"
+                ItemsSource="{Binding LoadSurveysCommand}"
                 SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Padding="10" x:DataType="model:Survey">
-                        <Label Text="{Binding Text}" 
+                        <Label Text="{Binding text}" 
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListSurveyTextStyle}" 
                             FontSize="16" />
-                        <Label Text="{Binding Description}" 
+                        <Label Text="{Binding description}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListSurveyDetailTextStyle}"
                             FontSize="13" />

@@ -1,11 +1,13 @@
 ﻿using System;
+using SQLite;
 
 namespace LawTechTeam.Models
 {
     public class Survey
     {
-        public string Id { get; set; }
-        public string Text { get; set; }
-        public string Description { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int id { get; set; }
+        public string text { get; set; }
+        public string description { get; set; }
     }
 }

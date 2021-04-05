@@ -10,7 +10,6 @@ namespace LawTechTeam.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Survey> DataStore => DependencyService.Get<IDataStore<Survey>>();
 
         bool isBusy = false;
         public bool IsBusy
