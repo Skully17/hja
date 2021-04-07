@@ -20,15 +20,23 @@
                 SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Padding="10" x:DataType="model:Survey">
-                        <Label Text="{Binding text}" 
+                    <StackLayout Margin="1,1" Orientation="Horizontal" Padding="10" x:DataType="model:Survey" >
+                        <Label Text="{Binding DetaineeID}"
                             LineBreakMode="NoWrap" 
-                            Style="{DynamicResource ListSurveyTextStyle}" 
-                            FontSize="16" />
-                        <Label Text="{Binding description}" 
+                            Style="{DynamicResource ListSurveyTextStyle}"
+                            HorizontalOptions="StartAndExpand"
+                            WidthRequest="75"   />
+                        <Label Text="{Binding Station}" 
                             LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListSurveyDetailTextStyle}"
-                            FontSize="13" />
+                            Style="{DynamicResource ListSurveyTextStyle}"
+                            HorizontalOptions="CenterAndExpand"
+                            WidthRequest="250"
+                            HorizontalTextAlignment="Center"   />
+                        <Label Text="{Binding Date}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListSurveyTextStyle}"
+                            HorizontalOptions="EndAndExpand"
+                            WidthRequest="70"   />
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer 
                                 NumberOfTapsRequired="1"

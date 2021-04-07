@@ -6,8 +6,8 @@ namespace LawTechTeam.Models
     public class Survey
     {
         [PrimaryKey, AutoIncrement]
-        public int id { get; set; }
-        public string text { get; set; }
-        public string description { get; set; }
+        public int CaseId { get; set; }
+        public string Station { get; set; }
+        public string Date { get; set; }
     }
 }

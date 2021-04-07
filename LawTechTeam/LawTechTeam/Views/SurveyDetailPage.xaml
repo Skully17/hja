@@ -8,10 +8,30 @@
         <ToolbarItem Text="Delete" Command="{Binding DeleteSurveyCommand}" CommandParameter="{Binding Survey}" />
     </ContentPage.ToolbarItems>
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Text}" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Description}" FontSize="Small"/>
+        <Label Style="{DynamicResource ShowSurveyTextStyle}">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Detainee ID:   "/>
+                    <Span Text="{Binding DetaineeID}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label Style="{DynamicResource ShowSurveyTextStyle}">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Police Station:   "/>
+                    <Span Text="{Binding Station}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label Style="{DynamicResource ShowSurveyTextStyle}">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Date:   "/>
+                    <Span Text="{Binding Date}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
     </StackLayout>
     
 </ContentPage>

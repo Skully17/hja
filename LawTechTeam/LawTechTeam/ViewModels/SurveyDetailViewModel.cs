@@ -10,8 +10,8 @@ namespace LawTechTeam.ViewModels
     public class SurveyDetailViewModel : BaseViewModel
     {
         private int surveyId;
-        private string text;
-        private string description;
+        private string station;
+        private string date;
 
         public Survey Survey { get; set; }
 
@@ -26,16 +26,21 @@ namespace LawTechTeam.ViewModels
             DeleteSurveyCommand = new Command(OnDeleteSurvey);
         }
 
-        public string Text
+        public string DetaineeID
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => detaineeID;
+            set => SetProperty(ref detaineeID, value);
         }
 
-        public string Description
+        public string Station
         {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => station;
+            set => SetProperty(ref station, value);
+        }
+        public string Date
+        {
+            get => date;
+            set => SetProperty(ref date, value);
         }
 
         public int SurveyId
@@ -69,9 +74,9 @@ namespace LawTechTeam.ViewModels
             try
             {
                 Survey = await App.Database.GetSurveyAsync(surveyId);
-                Id = Survey.id;
-                Text = Survey.text;
-                Description = Survey.description;
+                Id = Survey.Id;
+                Text = Survey.Station;
+                Description = Survey.Date;
             }
             catch (Exception)
             {
