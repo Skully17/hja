@@ -11,8 +11,8 @@
         <Label Style="{DynamicResource ShowSurveyTextStyle}">
             <Label.FormattedText>
                 <FormattedString>
-                    <Span Text="Detainee ID:   "/>
-                    <Span Text="{Binding DetaineeID}"/>
+                    <Span Text="Case ID:   "/>
+                    <Span Text="{Binding CaseID}"/>
                 </FormattedString>
             </Label.FormattedText>
         </Label>

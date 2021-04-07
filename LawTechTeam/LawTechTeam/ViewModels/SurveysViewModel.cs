@@ -80,7 +80,7 @@ namespace LawTechTeam.ViewModels
                 return;
 
             // This will push the SurveyDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(SurveyDetailPage)}?{nameof(SurveyDetailViewModel.SurveyId)}={survey.id}");
+            await Shell.Current.GoToAsync($"{nameof(SurveyDetailPage)}?{nameof(SurveyDetailViewModel.CaseID)}={survey.CaseID}");
         }
     }
 }

@@ -6,30 +6,22 @@ using Xamarin.Forms;
 
 namespace LawTechTeam.ViewModels
 {
-    [QueryProperty(nameof(SurveyId), nameof(SurveyId))]
+    [QueryProperty(nameof(CaseID), nameof(CaseID))]
     public class SurveyDetailViewModel : BaseViewModel
     {
-        private int surveyId;
+        private int caseID;
         private string station;
         private string date;
 
         public Survey Survey { get; set; }
 
-        public int Id { get; set; }
-
         public Command DeleteSurveyCommand { get; }
 
         public SurveyDetailViewModel()
         {
-            Title = text;
+            Title = station;
 
             DeleteSurveyCommand = new Command(OnDeleteSurvey);
-        }
-
-        public string DetaineeID
-        {
-            get => detaineeID;
-            set => SetProperty(ref detaineeID, value);
         }
 
         public string Station
@@ -43,15 +35,15 @@ namespace LawTechTeam.ViewModels
             set => SetProperty(ref date, value);
         }
 
-        public int SurveyId
+        public int CaseID
         {
             get
             {
-                return surveyId;
+                return caseID;
             }
             set
             {
-                surveyId = value;
+                caseID = value;
                 LoadSurveyId(value);
             }
         }
@@ -74,9 +66,9 @@ namespace LawTechTeam.ViewModels
             try
             {
                 Survey = await App.Database.GetSurveyAsync(surveyId);
-                Id = Survey.Id;
-                Text = Survey.Station;
-                Description = Survey.Date;
+                CaseID = Survey.CaseID;
+                Station = Survey.Station;
+                Date = Survey.Date;
             }
             catch (Exception)
             {

@@ -22,12 +22,12 @@ namespace LawTechTeam.Services
 
         public Task<Survey> GetSurveyAsync(int id)
         {
-            return database.Table<Survey>().Where(i => i.id == id).FirstOrDefaultAsync();
+            return database.Table<Survey>().Where(i => i.CaseID== id).FirstOrDefaultAsync();
         }
 
         public Task<int> SaveSurveyAsync(Survey survey)
         {
-            if (survey.id != 0)
+            if (survey.CaseID != 0)
             {
                 return database.UpdateAsync(survey);
             }

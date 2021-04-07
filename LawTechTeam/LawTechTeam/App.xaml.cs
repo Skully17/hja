@@ -17,7 +17,7 @@ namespace LawTechTeam
             {
                 if (database == null)
                 {
-                    database = new SurveyDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Surveys.db3"));
+                    database = new SurveyDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Cases.db3"));
                 }
                 return database;
             }

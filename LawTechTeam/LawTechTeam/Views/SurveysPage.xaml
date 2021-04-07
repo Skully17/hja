@@ -21,7 +21,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Margin="1,1" Orientation="Horizontal" Padding="10" x:DataType="model:Survey" >
-                        <Label Text="{Binding DetaineeID}"
+                        <Label Text="{Binding CaseID}"
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListSurveyTextStyle}"
                             HorizontalOptions="StartAndExpand"
