@@ -6,13 +6,27 @@
              Title="New Survey"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="true">
-    <ContentPage.Content>
+
+	<ContentPage.Content>
         <StackLayout Spacing="3" Padding="15">
-            <Label Text="Station" FontSize="Medium" />
-            <Entry Text="{Binding Station, Mode=TwoWay}" FontSize="Medium" />
-            <Label Text="Date" FontSize="Medium" />
-            <Editor Text="{Binding Date, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
-            <StackLayout Orientation="Horizontal">
+            <Label Text="Detainee Age" FontSize="Medium" />
+			<Entry Text="{Binding DetaineeAge, Mode=TwoWay}" FontSize="Medium" />
+            <Label Text="Detainee Race" FontSize="Medium" />
+			<RadioButton Content="British" Value="{Binding British}" GroupName="Race" />
+			<RadioButton Content="Hispanic" Value="{Binding Hispanic}" GroupName="Race" />
+			<RadioButton Content="Black" Value="{Binding Black}" GroupName="Race" />
+			<RadioButton Content="Asian" Value="{Binding Asian}" GroupName="Race" />
+			<Label Text="Is the Detainee a UK Citizen" FontSize="Medium" />
+			<Entry Text="{Binding IsUKCitizen, Mode=TwoWay}" FontSize="Medium" Margin="0" />
+            <Label Text="Has the Detainee ever experienced racism before" FontSize="Medium" />
+			<Entry Text="{Binding HasExperiencedRacism, Mode=TwoWay}" FontSize="Medium" Margin="0" />
+			<Label Text="If the previous question was answered yes, please provide further details of this experience" FontSize="Medium" />
+			<Editor Text="{Binding RacismExperience, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+			<Label Text="Has the detainee experienced racial discrimination during their time here?" FontSize="Medium" />
+			<Entry Text="{Binding RacismExperiencedAtStation, Mode=TwoWay}" FontSize="Medium" Margin="0" />
+			<Label Text="If the answer to the above was 'Yes' please further details of the detainees experience" FontSize="Medium" />
+			<Editor Text="{Binding RacismExperiencedAtStationExample, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+			<StackLayout Orientation="Horizontal">
                 <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
                 <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
             </StackLayout>

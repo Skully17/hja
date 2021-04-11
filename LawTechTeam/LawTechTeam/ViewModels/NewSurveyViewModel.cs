@@ -11,6 +11,13 @@ namespace LawTechTeam.ViewModels
     {
         private string station;
         private string date;
+        private string detaineeAge;
+        private int detaineeRace;
+        private string isUkCitizen;
+        private string hasExperiencedRacism;
+        private string racismExperience;
+        private string racismExperiencedInTimeAtStation;
+        private string racismExperiencedAtStationExample;
 
         public NewSurveyViewModel()
         {
@@ -35,6 +42,66 @@ namespace LawTechTeam.ViewModels
         {
             get => date;
             set => SetProperty(ref date, value);
+        }
+
+        public string DetaineeAge
+        {
+            get => detaineeAge;
+            set => SetProperty(ref detaineeAge, value);
+        }
+
+        public string IsUKCitizen
+        {
+            get => isUkCitizen;
+            set => SetProperty(ref isUkCitizen, value);
+        }
+
+        public int British
+        {
+            get => detaineeRace;
+            set => SetProperty(ref detaineeRace, value);
+        }
+
+        public int Hispanic
+        {
+            get => detaineeRace;
+            set => SetProperty(ref detaineeRace, value);
+        }
+
+        public int Black
+        {
+            get => detaineeRace;
+            set => SetProperty(ref detaineeRace, value);
+        }
+
+        public int Asian
+        {
+            get => detaineeRace;
+            set => SetProperty(ref detaineeRace, value);
+        }
+
+        public string HasExperiencedRacism
+        {
+            get => hasExperiencedRacism;
+            set => SetProperty(ref hasExperiencedRacism, value);
+        }
+
+        public string RacismExperience
+        {
+            get => racismExperience;
+            set => SetProperty(ref racismExperience, value);
+        }
+
+        public string RacismExperiencedAtStation
+        {
+            get => racismExperiencedInTimeAtStation;
+            set => SetProperty(ref racismExperiencedInTimeAtStation, value);
+        }
+
+        public string RacismExperiencedAtStationExample
+        {
+            get => racismExperiencedAtStationExample;
+            set => SetProperty(ref racismExperiencedAtStationExample, value);
         }
 
         public Command SaveCommand { get; }
