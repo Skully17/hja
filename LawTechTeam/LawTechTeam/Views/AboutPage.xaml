@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LawTechTeam.Views.AboutPage"
              xmlns:vm="clr-namespace:LawTechTeam.ViewModels"
-             Title="Lol">
+             Title="{Binding Memes}">
     
     <ContentPage.BindingContext>
         <vm:AboutViewModel />

@@ -1,7 +1,4 @@
-﻿using LawTechTeam.ViewModels;
-using LawTechTeam.Views;
-using System;
-using System.Collections.Generic;
+﻿using LawTechTeam.Views;
 using Xamarin.Forms;
 
 namespace LawTechTeam
