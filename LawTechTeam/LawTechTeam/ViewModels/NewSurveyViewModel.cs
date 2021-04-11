@@ -7,12 +7,12 @@ using Xamarin.Forms;
 
 namespace LawTechTeam.ViewModels
 {
-    public class NewItemViewModel : BaseViewModel
+    public class NewSurveyViewModel : BaseViewModel
     {
-        private string text;
-        private string description;
+        private string station;
+        private string date;
 
-        public NewItemViewModel()
+        public NewSurveyViewModel()
         {
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
@@ -22,20 +22,19 @@ namespace LawTechTeam.ViewModels
 
         private bool ValidateSave()
         {
-            return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(description);
+            return !String.IsNullOrWhiteSpace(station)
+                && !String.IsNullOrWhiteSpace(date);
         }
 
-        public string Text
+        public string Station
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => station;
+            set => SetProperty(ref station, value);
         }
-
-        public string Description
+        public string Date
         {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => date;
+            set => SetProperty(ref date, value);
         }
 
         public Command SaveCommand { get; }
@@ -49,14 +48,13 @@ namespace LawTechTeam.ViewModels
 
         private async void OnSave()
         {
-            Item newItem = new Item()
+            Survey newSurvey = new Survey()
             {
-                Id = Guid.NewGuid().ToString(),
-                Text = Text,
-                Description = Description
+                Station = Station,
+                Date = Date
             };
 
-            await DataStore.AddItemAsync(newItem);
+            await App.Database.SaveSurveyAsync(newSurvey);
 
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");

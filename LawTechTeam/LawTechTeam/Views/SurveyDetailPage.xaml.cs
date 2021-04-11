@@ -4,12 +4,12 @@ using Xamarin.Forms;
 
 namespace LawTechTeam.Views
 {
-    public partial class ItemDetailPage : ContentPage
+    public partial class SurveyDetailPage : ContentPage
     {
-        public ItemDetailPage()
+        public SurveyDetailPage()
         {
             InitializeComponent();
-            BindingContext = new ItemDetailViewModel();
+            BindingContext = new SurveyDetailViewModel();
         }
     }
 }

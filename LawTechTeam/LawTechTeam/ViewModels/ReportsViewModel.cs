@@ -4,9 +4,9 @@ using Xamarin.Forms;
 
 namespace LawTechTeam.ViewModels
 {
-    public class AboutViewModel : BaseViewModel
+    public class ReportsViewModel : BaseViewModel
     {
-        public AboutViewModel()
+        public ReportsViewModel()
         {
             OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
         }

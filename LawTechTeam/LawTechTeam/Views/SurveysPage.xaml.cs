@@ -12,21 +12,23 @@ using Xamarin.Forms.Xaml;
 
 namespace LawTechTeam.Views
 {
-    public partial class ItemsPage : ContentPage
+    public partial class SurveysPage : ContentPage
     {
-        ItemsViewModel _viewModel;
+        SurveysViewModel _viewModel;
 
-        public ItemsPage()
+        public SurveysPage()
         {
             InitializeComponent();
 
-            BindingContext = _viewModel = new ItemsViewModel();
+            BindingContext = _viewModel = new SurveysViewModel();
         }
-
-        protected override void OnAppearing()
+        
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-            _viewModel.OnAppearing();
+
+            SurveysListView.ItemsSource = await App.Database.GetSurveysAsync();
         }
+        
     }
 }

@@ -8,8 +8,8 @@ namespace LawTechTeam
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            Routing.RegisterRoute(nameof(SurveyDetailPage), typeof(SurveyDetailPage));
+            Routing.RegisterRoute(nameof(NewSurveyPage), typeof(NewSurveyPage));
         }
 
     }

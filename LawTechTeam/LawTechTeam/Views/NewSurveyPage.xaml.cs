@@ -8,14 +8,14 @@ using Xamarin.Forms.Xaml;
 
 namespace LawTechTeam.Views
 {
-    public partial class NewItemPage : ContentPage
+    public partial class NewSurveyPage : ContentPage
     {
-        public Item Item { get; set; }
+        public Survey Survey { get; set; }
 
-        public NewItemPage()
+        public NewSurveyPage()
         {
             InitializeComponent();
-            BindingContext = new NewItemViewModel();
+            BindingContext = new NewSurveyViewModel();
         }
     }
 }

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LawTechTeam.Views.SurveyDetailPage"
+             Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Delete" Command="{Binding DeleteSurveyCommand}" CommandParameter="{Binding Survey}" />
+    </ContentPage.ToolbarItems>
+    <StackLayout Spacing="20" Padding="15">
+        <Label Style="{DynamicResource ShowSurveyTextStyle}">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Case ID:   "/>
+                    <Span Text="{Binding CaseID}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label Style="{DynamicResource ShowSurveyTextStyle}">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Police Station:   "/>
+                    <Span Text="{Binding Station}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label Style="{DynamicResource ShowSurveyTextStyle}">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Date:   "/>
+                    <Span Text="{Binding Date}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </StackLayout>
+    
+</ContentPage>

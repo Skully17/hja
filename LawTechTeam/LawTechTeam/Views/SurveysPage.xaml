@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LawTechTeam.Views.SurveysPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:LawTechTeam.ViewModels"  
+             xmlns:model="clr-namespace:LawTechTeam.Models"  
+             x:Name="BrowseSurveysPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddSurveyCommand}" />
+    </ContentPage.ToolbarItems>
+    <!--
+      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
+      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
+    -->
+    <RefreshView x:DataType="local:SurveysViewModel" Command="{Binding LoadSurveysCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <CollectionView x:Name="SurveysListView"
+                ItemsSource="{Binding LoadSurveysCommand}"
+                SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Margin="1,1" Orientation="Horizontal" Padding="10" x:DataType="model:Survey" >
+                        <Label Text="{Binding CaseID}"
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListSurveyTextStyle}"
+                            HorizontalOptions="StartAndExpand"
+                            WidthRequest="75"   />
+                        <Label Text="{Binding Station}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListSurveyTextStyle}"
+                            HorizontalOptions="CenterAndExpand"
+                            WidthRequest="250"
+                            HorizontalTextAlignment="Center"   />
+                        <Label Text="{Binding Date}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListSurveyTextStyle}"
+                            HorizontalOptions="EndAndExpand"
+                            WidthRequest="70"   />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:SurveysViewModel}}, Path=SurveyTapped}"		
+                                CommandParameter="{Binding .}">
+                            </TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>
