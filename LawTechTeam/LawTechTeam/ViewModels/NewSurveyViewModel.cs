@@ -1,8 +1,5 @@
 ﻿using LawTechTeam.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace LawTechTeam.ViewModels
@@ -23,14 +20,18 @@ namespace LawTechTeam.ViewModels
         {
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
-            this.PropertyChanged +=
-                (_, __) => SaveCommand.ChangeCanExecute();
+            PropertyChanged += (_, __) => SaveCommand.ChangeCanExecute();
         }
 
         private bool ValidateSave()
         {
-            return !String.IsNullOrWhiteSpace(station)
-                && !String.IsNullOrWhiteSpace(date);
+            return !String.IsNullOrWhiteSpace(DetaineeAge)
+                && detaineeRace > 0
+                && !String.IsNullOrEmpty(IsUKCitizen)
+                && !String.IsNullOrEmpty(HasExperiencedRacism)
+                && !String.IsNullOrEmpty(RacismExperience)
+                && !String.IsNullOrEmpty(RacismExperiencedAtStation)
+                && !String.IsNullOrEmpty(RacismExperiencedAtStationExample);
         }
 
         public string Station
@@ -115,10 +116,17 @@ namespace LawTechTeam.ViewModels
 
         private async void OnSave()
         {
-            Survey newSurvey = new Survey()
+            Survey newSurvey = new Survey
             {
                 Station = Station,
-                Date = Date
+                Date = $"{DateTime.Now:dd MMM yyyy : HH:mm}",
+                DetaineeAge = DetaineeAge,
+                IsUkCitizen = IsUKCitizen,
+                Race = detaineeRace,
+                RacismExperience = HasExperiencedRacism,
+                RacismExperiencedAtStation = RacismExperiencedAtStation,
+                RacismExperiencedAtStationExamples = RacismExperiencedAtStationExample,
+                RacismExperiencedExample = RacismExperience
             };
 
             await App.Database.SaveSurveyAsync(newSurvey);
