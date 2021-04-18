@@ -29,6 +29,48 @@ namespace LawTechTeam.Views
 
             SurveysListView.ItemsSource = await App.Database.GetSurveysAsync();
         }
-        
+
+        private void CaseIDButton_Clicked(object sender, EventArgs e)
+        {
+            if (CaseIDButton.Text == "Case ID ▲")
+            {
+                CaseIDButton.Text = "Case ID ▼";
+            }
+            else
+            {
+                CaseIDButton.Text = "Case ID ▲";
+                PoliceStationButton.Text = "Police Station";
+                DateButton.Text = "Date";
+            }
+        }
+
+        private void PoliceStationButton_Clicked(object sender, EventArgs e)
+        {
+            if (PoliceStationButton.Text == "Police Station ▲")
+            {
+                PoliceStationButton.Text = "Police Station ▼";
+            }
+            else
+            {
+                PoliceStationButton.Text = "Police Station ▲";
+                CaseIDButton.Text = "Case ID";
+                DateButton.Text = "Date";
+            }
+        }
+
+        private void DateButton_Clicked(object sender, EventArgs e)
+        {
+            if (DateButton.Text == "Date ▲")
+            {
+                DateButton.Text = "Date ▼";
+            }
+            else
+            {
+                DateButton.Text = "Date ▲";
+                CaseIDButton.Text = "Case ID";
+                PoliceStationButton.Text = "Police Station";
+            }
+        }
+
     }
 }
