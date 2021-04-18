@@ -1,5 +1,5 @@
 ﻿using LawTechTeam.Services;
-using LawTechTeam.Views;
+using LawTechTeam.Models;
 using System;
 using System.IO;
 using Xamarin.Forms;
@@ -27,7 +27,7 @@ namespace LawTechTeam
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()
