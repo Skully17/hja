@@ -4,12 +4,31 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="LawTechTeam.Views.LoginPage"
+             x:Class="LawTechTeam.Models.LoginPage"
              Shell.NavBarIsVisible="False">
-
-	<ContentPage.Content>
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+    
+    <StackLayout x:Name="MasterLayout">
+        
+        <StackLayout x:Name="LogoStack" VerticalOptions="Center">
+            <Image x:Name="LoginIcon" Source="xamarin_logo.png" Margin="0,80,0,0"/>
             <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
         </StackLayout>
-    </ContentPage.Content>
+
+        <StackLayout x:Name="LoginEntriesStack" VerticalOptions="StartAndExpand">
+            <StackLayout.Padding>
+                <OnIdiom x:TypeArguments="Thickness">
+                    <OnIdiom.Phone>40,0,40</OnIdiom.Phone>
+                    <OnIdiom.Tablet>140,150,140</OnIdiom.Tablet>
+                </OnIdiom>
+            </StackLayout.Padding>
+
+            <ActivityIndicator x:Name="ActivitySpinner" Color="Red" IsRunning="True"/>
+            <Label x:Name="Lbl_Username" Text="Username" />
+            <Entry x:Name="Entry_Username" Placeholder="Username" />
+            <Label x:Name="Lbl_Password" Text="Password" />
+            <Entry x:Name="Entry_Password" Placeholder="Password" />
+            <Button x:Name="Btn_Signin" Text="Sign In" Clicked="SignInProcedure"/>
+        </StackLayout>
+        
+    </StackLayout>
 </ContentPage>

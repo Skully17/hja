@@ -1,4 +1,4 @@
-﻿using LawTechTeam.Views;
+﻿using LawTechTeam.Models;
 using Xamarin.Forms;
 
 namespace LawTechTeam

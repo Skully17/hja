@@ -1,6 +1,5 @@
-﻿using LawTechTeam.Models;
-using LawTechTeam.ViewModels;
-using LawTechTeam.Views;
+﻿using LawTechTeam.ViewModels;
+using LawTechTeam.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace LawTechTeam.Views
+namespace LawTechTeam.Models
 {
     public partial class SurveysPage : ContentPage
     {
