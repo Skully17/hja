@@ -27,31 +27,7 @@ namespace LawTechTeam.ViewModels
 
             AddSurveyCommand = new Command(OnAddSurvey);
         }
-        /*
-        async void OnAppearing()
-        {
-            IsBusy = true;
-
-            try
-            {
-                Debug.WriteLine("this is a desprate plee");
-                Surveys.Clear();
-                var surveys = await App.Database.GetSurveysAsync();
-                foreach (var survey in surveys)
-                {
-                    Surveys.Add(survey);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("display fail: " + ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
-        }
-        */
+        
         
         public async void OnAppearing()
         {

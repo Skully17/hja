@@ -25,13 +25,14 @@ namespace LawTechTeam.ViewModels
 
         private bool ValidateSave()
         {
-            return !String.IsNullOrWhiteSpace(DetaineeAge)
-                && detaineeRace > 0
-                && !String.IsNullOrEmpty(IsUKCitizen)
-                && !String.IsNullOrEmpty(HasExperiencedRacism)
-                && !String.IsNullOrEmpty(RacismExperience)
-                && !String.IsNullOrEmpty(RacismExperiencedAtStation)
-                && !String.IsNullOrEmpty(RacismExperiencedAtStationExample);
+            //return !String.IsNullOrWhiteSpace(DetaineeAge)
+            //    && detaineeRace > 0
+            //    && !String.IsNullOrEmpty(IsUKCitizen)
+            //    && !String.IsNullOrEmpty(HasExperiencedRacism)
+            //    && !String.IsNullOrEmpty(RacismExperience)
+            //    && !String.IsNullOrEmpty(RacismExperiencedAtStation)
+            //    && !String.IsNullOrEmpty(RacismExperiencedAtStationExample);
+            return true;
         }
 
         public string Station

@@ -27,6 +27,7 @@ namespace LawTechTeam.Views
         {
             base.OnAppearing();
 
+            var Surveys = await App.Database.GetSurveysAsync();
             SurveysListView.ItemsSource = await App.Database.GetSurveysAsync();
         }
 
