@@ -3,7 +3,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace LawTechTeam.Views
+namespace LawTechTeam.Models
 {
     public partial class ReportsPage : ContentPage
     {
