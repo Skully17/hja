@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using Xamarin.Forms;
 
-namespace LawTechTeam.Models
+namespace LawTechTeam.Views
 {
     public partial class SurveyDetailPage : ContentPage
     {

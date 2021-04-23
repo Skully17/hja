@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LawTechTeam.Models
+namespace LawTechTeam.Views
 {
     class User
     {
