@@ -22,7 +22,7 @@ namespace LawTechTeam.Services
 
         public Task<LoginSys> GetLoginSysAsync(int id)
         {
-            return database.Table<LoginSys>().Where(i => i.AccUsername== id).FirstOrDefaultAsync();
+            return database.Table<LoginSys>().Where(i => i.AccUsername == id).FirstOrDefaultAsync();
         }
 
         public Task<int> SaveLoginSysAsync(LoginSys loginsys)
