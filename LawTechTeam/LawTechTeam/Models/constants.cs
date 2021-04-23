@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace LawTechTeam.Models
+namespace LawTechTeam.Views
 {
     class constants
     {

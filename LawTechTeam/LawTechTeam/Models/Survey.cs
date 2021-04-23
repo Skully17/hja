@@ -1,7 +1,7 @@
 ﻿using System;
 using SQLite;
 
-namespace LawTechTeam.Models
+namespace LawTechTeam.Views
 {
     public class Survey
     {
