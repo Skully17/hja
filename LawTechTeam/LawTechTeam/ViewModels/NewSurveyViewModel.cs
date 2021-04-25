@@ -1,4 +1,4 @@
-﻿using LawTechTeam.Models;
+﻿using LawTechTeam.Views;
 using System;
 using Xamarin.Forms;
 
@@ -119,7 +119,7 @@ namespace LawTechTeam.ViewModels
         {
             Survey newSurvey = new Survey
             {
-                Station = Station,
+                Station = "London Police Station",
                 Date = $"{DateTime.Now:dd MMM yyyy : HH:mm}",
                 DetaineeAge = DetaineeAge,
                 IsUkCitizen = IsUKCitizen,

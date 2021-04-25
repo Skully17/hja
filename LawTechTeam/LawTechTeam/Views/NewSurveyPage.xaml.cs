@@ -1,4 +1,4 @@
-﻿using LawTechTeam.Models;
+﻿using LawTechTeam.Views;
 using LawTechTeam.ViewModels;
 using System;
 using System.Collections.Generic;

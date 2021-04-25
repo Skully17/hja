@@ -1,5 +1,4 @@
-﻿using LawTechTeam.Models;
-using LawTechTeam.Views;
+﻿using LawTechTeam.Views;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;

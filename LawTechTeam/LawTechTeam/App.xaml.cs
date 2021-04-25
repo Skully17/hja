@@ -1,10 +1,9 @@
 ﻿using LawTechTeam.Services;
-using LawTechTeam.Models;
-using LawTechTeam.Views;
 using System;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using LawTechTeam.Views;
 
 namespace LawTechTeam
 {
@@ -35,7 +34,7 @@ namespace LawTechTeam
             }
             else
             {
-                MainPage = new LoginPage();
+                MainPage = new AppShell();
             }
         }
 

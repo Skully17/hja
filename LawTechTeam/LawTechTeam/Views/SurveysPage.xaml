@@ -4,7 +4,7 @@
              x:Class="LawTechTeam.Views.SurveysPage"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:LawTechTeam.ViewModels"  
-             xmlns:model="clr-namespace:LawTechTeam.Models"  
+             xmlns:model="clr-namespace:LawTechTeam.Views"  
              x:Name="BrowseSurveysPage">
 
     <ContentPage.ToolbarItems>
