@@ -9,6 +9,7 @@ namespace LawTechTeam.Views
         public int CaseID { get; set; }
         public string Station { get; set; }
         public string Date { get; set; }
+        public string Time { get; set; }
         public int Race { get; set; }
         public string RacismExperience { get; set; }
         public string RacismExperiencedAtStation { get; set; }
@@ -17,4 +18,5 @@ namespace LawTechTeam.Views
         public string RacismExperiencedAtStationExamples { get; set; }
         public string RacismExperiencedExample { get; set; }
     }
+
 }

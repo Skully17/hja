@@ -15,38 +15,60 @@
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
     -->
     <RefreshView x:DataType="local:SurveysViewModel" Command="{Binding LoadSurveysCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-        <Grid Padding="5,10,10,10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0*"/>
-                <ColumnDefinition Width="2.5*"/>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="2.5*" />
-            </Grid.ColumnDefinitions>
-            <Button x:Name="CaseIDButton" Text="Case ID ▲" Clicked="CaseIDButton_Clicked" VerticalOptions="StartAndExpand" Grid.Column="1" ></Button>
-            <Button x:Name="PoliceStationButton" Text="Police Station" Clicked="PoliceStationButton_Clicked" VerticalOptions="StartAndExpand" Grid.Column="2"></Button>
-            <Button x:Name="DateButton" Text="Date" Clicked="DateButton_Clicked" VerticalOptions="StartAndExpand" Grid.Column="3"></Button>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="1,1" Padding="3,5">
+                <Button
+                    x:Name="CaseIDButton" 
+                    Text="Case ID ▼" 
+                    Clicked="CaseIDButton_Clicked" 
+                    HorizontalOptions="StartAndExpand"  
+                    VerticalOptions="StartAndExpand"
+                    WidthRequest="100"
+                />
+                <Button
+                    x:Name="PoliceStationButton" 
+                    Text="Police Station" 
+                    Clicked="PoliceStationButton_Clicked" 
+                    HorizontalOptions="CenterAndExpand" 
+                    VerticalOptions="StartAndExpand"
+                    WidthRequest="190" 
+                />
+                <Button 
+                    x:Name="DateButton" 
+                    Text="Date" 
+                    Clicked="DateButton_Clicked" 
+                    HorizontalOptions="EndAndExpand" 
+                    VerticalOptions="StartAndExpand"
+                    WidthRequest="100" 
+                />
+            </StackLayout>
             <CollectionView x:Name="SurveysListView"
                     ItemsSource="{Binding LoadSurveysCommand}"
                     SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Margin="1,1" Orientation="Horizontal" Padding="10" x:DataType="model:Survey" >
+                        <StackLayout Orientation="Horizontal" Margin="1,1" Padding="10" x:DataType="model:Survey">
                             <Label Text="{Binding CaseID}"
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListSurveyTextStyle}"
                                 HorizontalOptions="StartAndExpand"
-                                WidthRequest="75"   />
+                                WidthRequest="75"
+                                HorizontalTextAlignment="Center"
+                            />
                             <Label Text="{Binding Station}" 
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListSurveyTextStyle}"
                                 HorizontalOptions="CenterAndExpand"
                                 WidthRequest="250"
-                                HorizontalTextAlignment="Center"   />
+                                HorizontalTextAlignment="Center" 
+                            />
                             <Label Text="{Binding Date}" 
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListSurveyTextStyle}"
                                 HorizontalOptions="EndAndExpand"
-                                WidthRequest="70"   />
+                                WidthRequest="90"  
+                                HorizontalTextAlignment="Center"
+                            />
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer 
                                     NumberOfTapsRequired="1"
@@ -58,6 +80,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </Grid>
+        </StackLayout>
     </RefreshView>
 </ContentPage>

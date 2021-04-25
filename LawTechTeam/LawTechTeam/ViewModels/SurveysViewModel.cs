@@ -19,21 +19,21 @@ namespace LawTechTeam.ViewModels
         public SurveysViewModel()
         {
             Title = "Browse";
-            // Surveys = new ObservableCollection<Survey>();
+            //Surveys = new ObservableCollection<Survey>();
             LoadSurveysCommand = new Command(OnAppearing);
 
             SurveyTapped = new Command<Survey>(OnSurveySelected);
 
             AddSurveyCommand = new Command(OnAddSurvey);
         }
-        
-        
-        public async void OnAppearing()
+
+
+        public void OnAppearing()
         {
             IsBusy = true;
             SelectedSurvey = null;
         }
-        
+
         public Survey SelectedSurvey
         {
             get => _selectedSurvey;
@@ -57,5 +57,7 @@ namespace LawTechTeam.ViewModels
             // This will push the SurveyDetailPage onto the navigation stack
             await Shell.Current.GoToAsync($"{nameof(SurveyDetailPage)}?{nameof(SurveyDetailViewModel.CaseID)}={survey.CaseID}");
         }
+
+
     }
 }
