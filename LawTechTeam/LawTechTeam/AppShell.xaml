@@ -25,7 +25,7 @@
                 <Setter Property="TextColor" Value="{StaticResource Primary}"/>
                 <Setter Property="FontSize" Value="15"/>
             </Style>
-            <Style x:Key="ShowSurveyTextStyle" TargetType="Label">
+            <Style x:Key="DefaultTextStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="{StaticResource Primary}"/>
                 <Setter Property="FontSize" Value="Medium"/>
             </Style>
