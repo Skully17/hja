@@ -34,7 +34,7 @@ namespace LawTechTeam
             }
             else
             {
-                MainPage = new AppShell();
+                MainPage = new LoginPage();
             }
         }
 
