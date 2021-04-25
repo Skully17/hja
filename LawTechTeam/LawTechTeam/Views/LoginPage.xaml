@@ -15,7 +15,7 @@
                     <Entry Placeholder="Username" Text="{Binding Username}" Grid.Row="0"/>
                     <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True" Grid.Row="1"/>
                     <Button Text="Login" Grid.Row="2" BackgroundColor="#0077be" TextColor="White" Command="{Binding LoginCommand}"/>
-                    <Button Text="SignUp" Grid.Row="3"/>
+                    <Button Text="SignUp" Grid.Row="3" Command="{Binding RegisterCommand}"/>
                 </Grid>
             </StackLayout>
         </ScrollView>

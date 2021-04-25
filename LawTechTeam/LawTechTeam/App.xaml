@@ -9,6 +9,11 @@
         <ResourceDictionary>
             <Color x:Key="Primary">#442341</Color>
             <Color x:Key="Background">#442341</Color>
+            <Color x:Key="GraphColour1">#4472c4</Color>
+            <Color x:Key="GraphColour2">#ed7d31</Color>
+            <Color x:Key="GraphColour3">#70ad47</Color>
+            <Color x:Key="GraphColour4">#ffc000</Color>
+            <Color x:Key="GraphColour5">#7030a0</Color>
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">

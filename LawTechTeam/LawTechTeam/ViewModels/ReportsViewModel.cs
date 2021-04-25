@@ -7,16 +7,11 @@ namespace LawTechTeam.ViewModels
 {
     public class ReportsViewModel : BaseViewModel
     {
-        public static string colour1 = "#4472c4";
-        public static string colour2 = "#ed7d31";
-        public static string colour3 = "#70ad47";
-        public static string colour4 = "#ffc000";
-        public static string colour5 = "#7030a0";
-        public static string blank = "#ffffff";
-
         public Command<string> GraphClicked { get; }
         public ReportsViewModel()
         {
+            Title = "Reports Home";
+
             GraphClicked = new Command<string>(on_button_press);
         }
 

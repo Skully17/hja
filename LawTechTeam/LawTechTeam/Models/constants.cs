@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace LawTechTeam.Views
+namespace LawTechTeam.Models
 {
-    class constants
+    class Constants
     {
         public static bool IsDev = true;
 
@@ -13,6 +13,8 @@ namespace LawTechTeam.Views
         public static Color MainTextColor = Color.White;
 
         public static int LoginIconHeight = 120;
+
+        public static string body_text = "#442341";
 
         public static string colour1 = "#4472c4";
         public static string colour2 = "#ed7d31";

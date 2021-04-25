@@ -16,12 +16,12 @@ namespace LawTechTeam.Views
         {
             new ChartEntry(32)
             {
-                Color = SKColor.Parse(constants.colour1),
+                Color = SKColor.Parse(Constants.colour1),
                 ValueLabel = "31.3%"
             },
             new ChartEntry(68)
             {
-                Color = SKColor.Parse(constants.colour2),
+                Color = SKColor.Parse(Constants.colour2),
                 ValueLabel = "68.7%",
             }
         };

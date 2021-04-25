@@ -16,19 +16,22 @@ namespace LawTechTeam.Views
         {
             new ChartEntry(40)
             {
-                Color = SKColor.Parse(constants.colour1)
+                Color = SKColor.Parse(Constants.colour1),
+                //Label = "male",
+                //ValueLabel = "40",
+                //ValueLabelColor = SKColor.Parse("#0000ff")
             },
             new ChartEntry(35)
             {
-                Color = SKColor.Parse(constants.colour2)
+                Color = SKColor.Parse(Constants.colour2)
             },
             new ChartEntry(15)
             {
-                Color = SKColor.Parse(constants.colour3)
+                Color = SKColor.Parse(Constants.colour3)
             },
             new ChartEntry(5)
             {
-                Color = SKColor.Parse(constants.colour4)
+                Color = SKColor.Parse(Constants.colour4)
             }
         };
         public Graph2Page()

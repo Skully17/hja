@@ -14,75 +14,82 @@ namespace LawTechTeam.Views
     {
         public static ChartEntry[] entries = new[]
         {
-            new ChartEntry(40)
+            new ChartEntry(75)
             {
-                Color = SKColor.Parse(constants.colour1),
-                Label = "Yes"
+                Color = SKColor.Parse(Constants.colour1),
+                Label = "Yes",
+                ValueLabel = "75",
+                ValueLabelColor = SKColor.Parse(Constants.body_text)
             },
-            new ChartEntry(35)
+            new ChartEntry(250)
             {
-                Color = SKColor.Parse(constants.colour1),
-                Label = "No"
-            },
-            new ChartEntry(0)
-            {
-                Color = SKColor.Parse(constants.blank),
-                Label = "|"
-            },
-            new ChartEntry(15)
-            {
-                Color = SKColor.Parse(constants.colour2),
-                Label = "Yes"
-            },
-            new ChartEntry(5)
-            {
-                Color = SKColor.Parse(constants.colour2),
-                Label = "No"
+                Color = SKColor.Parse(Constants.colour1),
+                Label = "No",
+                ValueLabel = "250"
             },
             new ChartEntry(0)
             {
-                Color = SKColor.Parse(constants.blank),
-                Label = "|"
+                Color = SKColor.Parse(Constants.blank)
             },
-            new ChartEntry(15)
+            new ChartEntry(120)
             {
-                Color = SKColor.Parse(constants.colour3),
-                Label = "Yes"
+                Color = SKColor.Parse(Constants.colour2),
+                Label = "Yes",
+                ValueLabel = "120"
             },
-            new ChartEntry(5)
+            new ChartEntry(200)
             {
-                Color = SKColor.Parse(constants.colour3),
-                Label = "No"
-            },
-            new ChartEntry(0)
-            {
-                Color = SKColor.Parse(constants.blank),
-                Label = "|"
-            },
-            new ChartEntry(15)
-            {
-                Color = SKColor.Parse(constants.colour4),
-                Label = "Yes"
-            },
-            new ChartEntry(5)
-            {
-                Color = SKColor.Parse(constants.colour4),
-                Label = "No"
+                Color = SKColor.Parse(Constants.colour2),
+                Label = "No",
+                ValueLabel = "200"
             },
             new ChartEntry(0)
             {
-                Color = SKColor.Parse(constants.blank),
-                Label = "|"
+                Color = SKColor.Parse(Constants.blank)
             },
-            new ChartEntry(15)
+            new ChartEntry(90)
             {
-                Color = SKColor.Parse(constants.colour5),
-                Label = "Yes"
+                Color = SKColor.Parse(Constants.colour3),
+                Label = "Yes",
+                ValueLabel = "90"
             },
-            new ChartEntry(5)
+            new ChartEntry(200)
             {
-                Color = SKColor.Parse(constants.colour5),
-                Label = "No"
+                Color = SKColor.Parse(Constants.colour3),
+                Label = "No",
+                ValueLabel = "200"
+            },
+            new ChartEntry(0)
+            {
+                Color = SKColor.Parse(Constants.blank)
+            },
+            new ChartEntry(150)
+            {
+                Color = SKColor.Parse(Constants.colour4),
+                Label = "Yes",
+                ValueLabel = "150"
+            },
+            new ChartEntry(200)
+            {
+                Color = SKColor.Parse(Constants.colour4),
+                Label = "No",
+                ValueLabel = "200"
+            },
+            new ChartEntry(0)
+            {
+                Color = SKColor.Parse(Constants.blank)
+            },
+            new ChartEntry(20)
+            {
+                Color = SKColor.Parse(Constants.colour5),
+                Label = "Yes",
+                ValueLabel = "20"
+            },
+            new ChartEntry(50)
+            {
+                Color = SKColor.Parse(Constants.colour5),
+                Label = "No",
+                ValueLabel = "50"
             }
         };
         public Graph1Page()
@@ -93,8 +100,9 @@ namespace LawTechTeam.Views
             {
                 Entries = entries,
                 LabelTextSize = 40,
-                Margin = 20
-            }; ; 
+                Margin = 20,
+                LabelColor = SKColor.Parse(Constants.body_text)
+            };
         }
     }
 }

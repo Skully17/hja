@@ -3,7 +3,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
-    x:Class="LawTechTeam.Views.Graph2Page">
+    x:Class="LawTechTeam.Views.Graph2Page"
+    Title="Gender Distribution">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -17,7 +18,14 @@
 
     <ScrollView>
         <StackLayout>
-            <Label Text="Gender Distribution" FontSize="Title" HorizontalOptions="Center"/>
+            <Label 
+                Text="&quot;I feel I have been racially discriminated against in custody&quot; by gender"
+                FontSize="Medium"
+                HorizontalTextAlignment="Center"
+                FontAttributes="Bold"
+                TextColor="{StaticResource Primary}"
+                Padding="0, 10, 0, 20"
+            />
             <StackLayout Orientation="Horizontal" HorizontalOptions="End">
                 <Label Text="Male" FontSize="Body"/>
                 <BoxView BackgroundColor="{StaticResource colour1}" HeightRequest="20" WidthRequest="20" Margin="0, 0, 10, 0"/>
