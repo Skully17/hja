@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LawTechTeam.Models
+namespace LawTechTeam.Views
 {
     class User
     {
@@ -19,6 +19,7 @@ namespace LawTechTeam.Models
 
         public bool CheckInInformation()
         {
+            return true;
             if (!this.Username.Equals("") && !this.Password.Equals(""))
                 return true;
             else

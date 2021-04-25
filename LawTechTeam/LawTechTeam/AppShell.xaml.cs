@@ -1,4 +1,4 @@
-﻿using LawTechTeam.Models;
+﻿using LawTechTeam.Views;
 using Xamarin.Forms;
 
 namespace LawTechTeam
@@ -10,6 +10,10 @@ namespace LawTechTeam
             InitializeComponent();
             Routing.RegisterRoute(nameof(SurveyDetailPage), typeof(SurveyDetailPage));
             Routing.RegisterRoute(nameof(NewSurveyPage), typeof(NewSurveyPage));
+            Routing.RegisterRoute(nameof(Graph1Page), typeof(Graph1Page));
+            Routing.RegisterRoute(nameof(Graph2Page), typeof(Graph2Page));
+            Routing.RegisterRoute(nameof(Graph3Page), typeof(Graph3Page));
+            Routing.RegisterRoute(nameof(Graph4Page), typeof(Graph4Page));
         }
 
     }

@@ -20,7 +20,7 @@ namespace LawTechTeam.Services
             return database.Table<LoginSys>().ToListAsync();
         }
 
-        public Task<LoginSys> GetLoginSysAsync(int id)
+        public Task<LoginSys> GetLoginSysAsync(string id)
         {
             return database.Table<LoginSys>().Where(i => i.AccUsername== id).FirstOrDefaultAsync();
         }

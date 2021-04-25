@@ -1,4 +1,5 @@
-﻿using LawTechTeam.ViewModels;
+﻿using LawTechTeam.Models;
+using LawTechTeam.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace LawTechTeam.Models
+namespace LawTechTeam.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
@@ -35,12 +36,14 @@ namespace LawTechTeam.Models
 
 
 
-        void SignInProcedure(object sender, EventArgs e)
+        async void SignInProcedure(object sender, EventArgs e)
         {
             User user = new User(Entry_Username.Text, Entry_Password.Text);
             if (user.CheckInInformation())
             {
-                DisplayAlert("Login", "Success", "Okay");
+                await Xamarin.Essentials.SecureStorage.SetAsync("isLogged", "1");
+                Application.Current.MainPage = new AppShell();
+                await Shell.Current.GoToAsync("//ReportsPage");
             }
             else
             {

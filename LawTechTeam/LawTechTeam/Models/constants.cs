@@ -14,5 +14,11 @@ namespace LawTechTeam.Models
 
         public static int LoginIconHeight = 120;
 
+        public static string colour1 = "#4472c4";
+        public static string colour2 = "#ed7d31";
+        public static string colour3 = "#70ad47";
+        public static string colour4 = "#ffc000";
+        public static string colour5 = "#7030a0";
+        public static string blank = "#ffffff";
     }
 }

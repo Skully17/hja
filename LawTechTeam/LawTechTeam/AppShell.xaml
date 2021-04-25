@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:local="clr-namespace:LawTechTeam.Models"
+       xmlns:local="clr-namespace:LawTechTeam.Views"
        Title="LawTechTeam"
        x:Class="LawTechTeam.AppShell">
 
@@ -33,9 +33,9 @@
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="Surveys" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:SurveysPage}" />
+        <ShellContent Title="Surveys" Icon="icon_feed.png" Route="SurveysPage" ContentTemplate="{DataTemplate local:SurveysPage}" />
         <ShellContent Title="Reports" Icon="icon_about.png" Route="ReportsPage" ContentTemplate="{DataTemplate local:ReportsPage}" />
-        <ShellContent Title="Settings" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:SettingsPage}" />
+        <ShellContent Title="Settings" Icon="icon_feed.png" Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
     </TabBar>
 
     <!--

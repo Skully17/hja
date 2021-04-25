@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LawTechTeam.Android", "LawT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LawTechTeam.iOS", "LawTechTeam\LawTechTeam.iOS\LawTechTeam.iOS.csproj", "{8E588848-1931-4210-BA29-E572153E9C69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LawTechTeam", "LawTechTeam\LawTechTeam\LawTechTeam.csproj", "{99209915-3FB9-4A60-8DBA-4D4D06A209FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LawTechTeam", "LawTechTeam\LawTechTeam\LawTechTeam.csproj", "{99209915-3FB9-4A60-8DBA-4D4D06A209FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,7 +38,6 @@ Global
 		{13265EF6-FEAA-4A9A-B20D-F5BE75C10EEC}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{13265EF6-FEAA-4A9A-B20D-F5BE75C10EEC}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
 		{8E588848-1931-4210-BA29-E572153E9C69}.Debug|Any CPU.ActiveCfg = Debug|iPhone
-		{8E588848-1931-4210-BA29-E572153E9C69}.Debug|Any CPU.Build.0 = Debug|iPhone
 		{8E588848-1931-4210-BA29-E572153E9C69}.Debug|Any CPU.Deploy.0 = Debug|iPhone
 		{8E588848-1931-4210-BA29-E572153E9C69}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{8E588848-1931-4210-BA29-E572153E9C69}.Debug|iPhone.Build.0 = Debug|iPhone

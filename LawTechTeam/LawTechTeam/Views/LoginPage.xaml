@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="LawTechTeam.Models.LoginPage"
+             x:Class="LawTechTeam.Views.LoginPage"
              Shell.NavBarIsVisible="False">
     
     <StackLayout x:Name="MasterLayout">
@@ -17,8 +17,8 @@
         <StackLayout x:Name="LoginEntriesStack" VerticalOptions="StartAndExpand">
             <StackLayout.Padding>
                 <OnIdiom x:TypeArguments="Thickness">
-                    <OnIdiom.Phone>40,0,40</OnIdiom.Phone>
-                    <OnIdiom.Tablet>140,150,140</OnIdiom.Tablet>
+                    <OnIdiom.Phone>40,0,40,0</OnIdiom.Phone>
+                    <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
                 </OnIdiom>
             </StackLayout.Padding>
 
