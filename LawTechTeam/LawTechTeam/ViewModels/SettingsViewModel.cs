@@ -14,5 +14,10 @@ namespace LawTechTeam.ViewModels
         }
 
         public ICommand OpenWebCommand { get; }
+
+        public void OnLogout()
+        {
+
+        }
     }
 }

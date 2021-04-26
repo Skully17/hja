@@ -12,10 +12,10 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Entry Placeholder="UserName" x:Name="EntryUser" Grid.Row="0"/>
-                    <Entry Placeholder="Password" x:Name="EntryPassword" IsPassword="True" Grid.Row="1"/>
-                    <Button Text="Login" Grid.Row="2" BackgroundColor="#0077be" TextColor="White" Clicked="Handle_Clicked_1"/>
-                    <Button Text="SignUp" Grid.Row="3" Clicked="Handle_Clicked"/>
+                    <Entry Placeholder="Username" Text="{Binding Username}" Grid.Row="0"/>
+                    <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True" Grid.Row="1"/>
+                    <Button Text="Login" Grid.Row="2" BackgroundColor="#0077be" TextColor="White" Command="{Binding LoginCommand}"/>
+                    <Button Text="SignUp" Grid.Row="3" Command="{Binding RegisterCommand}"/>
                 </Grid>
             </StackLayout>
         </ScrollView>

@@ -19,6 +19,7 @@ namespace LawTechTeam.Views
 
         public bool CheckInInformation()
         {
+            return true;
             if (!this.Username.Equals("") && !this.Password.Equals(""))
                 return true;
             else

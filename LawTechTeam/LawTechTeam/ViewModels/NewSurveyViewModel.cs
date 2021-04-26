@@ -8,6 +8,7 @@ namespace LawTechTeam.ViewModels
     {
         private string station;
         private string date;
+        private string time;
         private string detaineeAge;
         private int detaineeRace;
         private int detaineeGender;
@@ -51,6 +52,11 @@ namespace LawTechTeam.ViewModels
         {
             get => date;
             set => SetProperty(ref date, value);
+        }
+        public string Time
+        {
+            get => time;
+            set => SetProperty(ref time, value);
         }
 
         public string DetaineeAge
@@ -211,7 +217,8 @@ namespace LawTechTeam.ViewModels
             Survey newSurvey = new Survey
             {
                 Station = "London Police Station",
-                Date = $"{DateTime.Now:dd MMM yyyy : HH:mm}",
+                Date = $"{DateTime.Now:dd/MM/yyyy}",
+                Time = $"{DateTime.Now:HH:mm}",
                 DetaineeAge = DetaineeAge,
                 IsUkCitizen = IsUKCitizen,
                 Race = detaineeRace,

@@ -12,6 +12,7 @@ namespace LawTechTeam.ViewModels
         private int caseID;
         private string station;
         private string date;
+        private string time;
 
         public Survey Survey { get; set; }
 
@@ -33,6 +34,11 @@ namespace LawTechTeam.ViewModels
         {
             get => date;
             set => SetProperty(ref date, value);
+        }
+        public string Time
+        {
+            get => time;
+            set => SetProperty(ref time, value);
         }
 
         public int CaseID
@@ -57,7 +63,7 @@ namespace LawTechTeam.ViewModels
             }
             catch (Exception)
             {
-                Debug.WriteLine("Failled to delete survey");
+                Debug.WriteLine("Failed to delete survey");
             }
         }
 
@@ -65,10 +71,11 @@ namespace LawTechTeam.ViewModels
         {
             try
             {
-                Survey = await App.Database.GetSurveyAsync(surveyId);
+                Survey = await App.Database.GetSurveysAsync_ID_Asc(surveyId);
                 CaseID = Survey.CaseID;
                 Station = Survey.Station;
                 Date = Survey.Date;
+                Time = Survey.Time;
             }
             catch (Exception)
             {

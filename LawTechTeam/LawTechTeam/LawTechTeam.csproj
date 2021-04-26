@@ -6,12 +6,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microcharts" Version="0.9.5.9" />
+    <PackageReference Include="Microcharts.Forms" Version="0.9.5.9" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\Graph4Page.xaml.cs">
+      <DependentUpon>Graph4Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Graph3Page.xaml.cs">
+      <DependentUpon>Graph3Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Graph2Page.xaml.cs">
+      <DependentUpon>Graph2Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Graph1Page.xaml.cs">
+      <DependentUpon>Graph1Page.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ReportsPage.xaml.cs">
       <DependentUpon>ReportsPage.xaml</DependentUpon>
     </Compile>

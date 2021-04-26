@@ -4,7 +4,6 @@ using System;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using LawTechTeam.Views;
 
 namespace LawTechTeam
 {
@@ -28,15 +27,17 @@ namespace LawTechTeam
         {
             InitializeComponent();
 
-            var isLogged = Xamarin.Essentials.SecureStorage.GetAsync("isLogged").Result;
-            if (isLogged == "1")
-            {
-                MainPage = new AppShell();
-            }
-            else
-            {
-                MainPage = new AppShell();
-            }
+            MainPage = new LoginPage();
+
+            //var isLogged = Xamarin.Essentials.SecureStorage.GetAsync("isLogged").Result;
+            //if (isLogged == "1")
+            //{
+            //    MainPage = new AppShell();
+            //}
+            //else
+            //{
+            //    MainPage = new LoginPage();
+            //}
         }
 
         protected override void OnStart()

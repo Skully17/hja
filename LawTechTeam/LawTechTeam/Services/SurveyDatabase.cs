@@ -15,14 +15,39 @@ namespace LawTechTeam.Services
             database.CreateTableAsync<Survey>().Wait();
         }
 
-        public Task<List<Survey>> GetSurveysAsync()
+        public Task<List<Survey>> GetSurveysAsync_ID_Desc() //Sort by ID (descending) - default view
+        {
+                return database.Table<Survey>().OrderByDescending(a => a.CaseID).ToListAsync();
+        }
+
+        public Task<List<Survey>> GetSurveysAsync_ID_Asc() //Sort by ID (ascending)
         {
             return database.Table<Survey>().ToListAsync();
         }
 
-        public Task<Survey> GetSurveyAsync(int id)
+        public Task<Survey> GetSurveysAsync_ID_Asc(int id) //Sort by ID (ascending)
         {
-            return database.Table<Survey>().Where(i => i.CaseID== id).FirstOrDefaultAsync();
+            return database.Table<Survey>().Where(i => i.CaseID == id).FirstOrDefaultAsync();
+        }
+
+        public Task<List<Survey>> GetSurveysAsync_Station_Desc() //Sort by Station (descending)
+        {
+            return database.Table<Survey>().OrderByDescending(a => a.Station).ToListAsync();
+        }
+
+        public Task<List<Survey>> GetSurveysAsync_Station_Asc() //Sort by Station (ascending)
+        {
+            return database.Table<Survey>().OrderBy(a => a.Station).ToListAsync();
+        }
+
+        public Task<List<Survey>> GetSurveysAsync_Date_Desc() //Sort by Date (descending)
+        {
+            return database.Table<Survey>().OrderByDescending(a => a.Date).ThenByDescending(a => a.Time).ToListAsync();
+        }
+
+        public Task<List<Survey>> GetSurveysAsync_Date_Asc() //Sort by Date (ascending)
+        {
+            return database.Table<Survey>().ToListAsync();
         }
 
         public Task<int> SaveSurveyAsync(Survey survey)
@@ -41,5 +66,6 @@ namespace LawTechTeam.Services
         {
             return database.DeleteAsync(survey);
         }
+
     }
 }
