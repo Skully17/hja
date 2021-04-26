@@ -10,11 +10,18 @@ namespace LawTechTeam.ViewModels
         private string date;
         private string detaineeAge;
         private int detaineeRace;
-        private string isUkCitizen;
-        private string hasExperiencedRacism;
+        private int detaineeGender;
+        private string detaineeReligion;
+        private int isUkCitizen;
+        private int hasExperiencedRacism;
+        private int hasExperiencedRacismInCustody;
         private string racismExperience;
         private string racismExperiencedInTimeAtStation;
         private string racismExperiencedAtStationExample;
+        private string district;
+        private string committedOffences;
+        private string sustainedAnyInjuries;
+        private int hasSustainedInjuries;
 
         public NewSurveyViewModel()
         {
@@ -52,7 +59,37 @@ namespace LawTechTeam.ViewModels
             set => SetProperty(ref detaineeAge, value);
         }
 
-        public string IsUKCitizen
+        public string SustainedInjuries
+        {
+            get => sustainedAnyInjuries;
+            set => SetProperty(ref sustainedAnyInjuries, value);
+        }
+
+        public string DetaineeReligion
+        {
+            get => detaineeReligion;
+            set => SetProperty(ref detaineeReligion, value);
+        }
+
+        public int YesCitizen
+        {
+            get => isUkCitizen;
+            set => SetProperty(ref isUkCitizen, value);
+        }
+
+        public int YesSustainedInjuries
+        {
+            get => hasSustainedInjuries;
+            set => SetProperty(ref hasSustainedInjuries, value);
+        }
+
+        public int NoSustainedInjuries
+        {
+            get => hasSustainedInjuries;
+            set => SetProperty(ref hasSustainedInjuries, value);
+        }
+
+        public int NoCitizen
         {
             get => isUkCitizen;
             set => SetProperty(ref isUkCitizen, value);
@@ -82,10 +119,64 @@ namespace LawTechTeam.ViewModels
             set => SetProperty(ref detaineeRace, value);
         }
 
-        public string HasExperiencedRacism
+        public int Male
+        {
+            get => detaineeGender;
+            set => SetProperty(ref detaineeGender, value);
+        }
+
+        public int Female
+        {
+            get => detaineeGender;
+            set => SetProperty(ref detaineeGender, value);
+        }
+
+        public int Other
+        {
+            get => detaineeGender;
+            set => SetProperty(ref detaineeGender, value);
+        }
+
+        public int PreferNotToSay
+        {
+            get => detaineeGender;
+            set => SetProperty(ref detaineeGender, value);
+        }
+
+        public int YesHasExperiencedRacism
         {
             get => hasExperiencedRacism;
             set => SetProperty(ref hasExperiencedRacism, value);
+        }
+
+        public int NoHasExperiencedRacism
+        {
+            get => hasExperiencedRacism;
+            set => SetProperty(ref hasExperiencedRacism, value);
+        }
+
+        public int YesHasExperiencedRacismInCustody
+        {
+            get => hasExperiencedRacismInCustody;
+            set => SetProperty(ref hasExperiencedRacismInCustody, value);
+        }
+
+        public int NoHasExperiencedRacismInCustody
+        {
+            get => hasExperiencedRacismInCustody;
+            set => SetProperty(ref hasExperiencedRacismInCustody, value);
+        }
+
+        public string District
+        {
+            get => district;
+            set => SetProperty(ref district, value);
+        }
+
+        public string CommittedOffence
+        {
+            get => committedOffences;
+            set => SetProperty(ref committedOffences, value);
         }
 
         public string RacismExperience

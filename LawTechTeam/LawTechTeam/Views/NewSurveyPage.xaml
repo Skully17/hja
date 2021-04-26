@@ -10,24 +10,74 @@
 	<ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="3" Padding="15">
-				<Label Text="Detainee Age" Style="{DynamicResource ShowSurveyTextStyle}" />
-                <Entry Text="{Binding DetaineeAge, Mode=TwoWay}" FontSize="Medium" />
-				<Label Text="Detainee Race" Style="{DynamicResource ShowSurveyTextStyle}" />
+				<Label Text="Age" Style="{DynamicResource ShowSurveyTextStyle}" />
+				<Picker HorizontalOptions="FillAndExpand" ItemDisplayBinding="{Binding DetaineeAge}" Style="{DynamicResource ShowSurveyTextStyle}">
+					<Picker.Items>
+						<x:String>Under 18</x:String>
+						<x:String>18 - 24</x:String>
+						<x:String>25 - 34</x:String>
+						<x:String>35 - 44</x:String>
+						<x:String>45 - 54</x:String>
+						<x:String>55+</x:String>
+					</Picker.Items>
+				</Picker>
+				<Label Text="Gender" Style="{DynamicResource ShowSurveyTextStyle}" />
+				<RadioButton Content="Male" Value="{Binding Male}" GroupName="Gender" />
+				<RadioButton Content="Female" Value="{Binding Female}" GroupName="Gender" />
+				<RadioButton Content="Other" Value="{Binding Other}" GroupName="Gender" />
+				<RadioButton Content="Prefer not to say" Value="{Binding PreferNotToSay}" GroupName="Gender" />
+				<Label Text="Race" Style="{DynamicResource ShowSurveyTextStyle}" />
                 <RadioButton Content="British" Value="{Binding British}" GroupName="Race" />
                 <RadioButton Content="Hispanic" Value="{Binding Hispanic}" GroupName="Race" />
                 <RadioButton Content="Black" Value="{Binding Black}" GroupName="Race" />
                 <RadioButton Content="Asian" Value="{Binding Asian}" GroupName="Race" />
-				<Label Text="Is the Detainee a UK Citizen" Style="{DynamicResource ShowSurveyTextStyle}" />
-                <Entry Text="{Binding IsUKCitizen, Mode=TwoWay}" FontSize="Medium" Margin="0" />
-				<Label Text="Has the Detainee ever experienced racism before" Style="{DynamicResource ShowSurveyTextStyle}" />
-                <Entry Text="{Binding HasExperiencedRacism, Mode=TwoWay}" FontSize="Medium" Margin="0" />
-				<Label Text="If the previous question was answered yes, please provide further details of this experience" Style="{DynamicResource ShowSurveyTextStyle}" />
+				<Label Text="Do you follow a religion, if so, which one?" Style="{DynamicResource ShowSurveyTextStyle}" />
+				<Picker HorizontalOptions="FillAndExpand" ItemDisplayBinding="{Binding DetaineeReligion}" Style="{DynamicResource ShowSurveyTextStyle}">
+					<Picker.Items>
+						<x:String>Christianity</x:String>
+						<x:String>Islam</x:String>
+						<x:String>Hinduism</x:String>
+						<x:String>Buddhism</x:String>
+						<x:String>Sikhism</x:String>
+						<x:String>Judaism</x:String>
+						<x:String>No Religion</x:String>
+						<x:String>Other</x:String>
+						<x:String>Prefer not to say</x:String>
+					</Picker.Items>
+				</Picker>
+				<Label Text="Which ethnic group would you describe yourself as?" Style="{DynamicResource ShowSurveyTextStyle}" />
+				<Picker HorizontalOptions="FillAndExpand" ItemDisplayBinding="{Binding DetaineeReligion}" Style="{DynamicResource ShowSurveyTextStyle}">
+					<Picker.Items>
+						<x:String>White</x:String>
+						<x:String>Mixed or multiple ethnic groups</x:String>
+						<x:String>Asian or Asian British</x:String>
+						<x:String>Black, African, Caribbean or Black British</x:String>
+						<x:String>Other</x:String>
+					</Picker.Items>
+				</Picker>
+				<Label Text="Are you a UK Citizen?" Style="{DynamicResource ShowSurveyTextStyle}" />
+				<RadioButton Content="Yes" Value="{Binding YesCitizen}" GroupName="YesNoCitizen" />
+				<RadioButton Content="No" Value="{Binding NoCitizen}" GroupName="YesNoCitizen" />
+				<Label Text="Which borough or district are you from?" Style="{DynamicResource ShowSurveyTextStyle}" />
+                <Entry Text="{Binding District, Mode=TwoWay}" FontSize="Medium" Margin="0" />
+				<Label Text="What offence(s) have you committed or believed to have committed?" Style="{DynamicResource ShowSurveyTextStyle}" />
+				<Entry Text="{Binding CommittedOffence, Mode=TwoWay}" FontSize="Medium" Margin="0" />
+				<Label Text="Have you experienced racism in the past?" Style="{DynamicResource ShowSurveyTextStyle}" />
+				<RadioButton Content="Yes" Value="{Binding YesHasExperiencedRacism}" GroupName="YesNoHasExperiencedRacism" />
+				<RadioButton Content="No" Value="{Binding NoHasExperiencedRacism}" GroupName="YesNoHasExperiencedRacism" />
+				<Label Text="If yes, please give a short summary of any racism you've experienced in the past" Style="{DynamicResource ShowSurveyTextStyle}" />
                 <Editor Text="{Binding RacismExperience, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
-				<Label Text="Has the detainee experienced racial discrimination during their time here?" Style="{DynamicResource ShowSurveyTextStyle}" />
+				<Label Text="Do you feel like you have experienced any racism discrimination while you've been in custody?" Style="{DynamicResource ShowSurveyTextStyle}" />
+				<RadioButton Content="Yes" Value="{Binding YesHasExperiencedRacismInCustody}" GroupName="YesNoHasExperiencedRacismInCustody" />
+				<RadioButton Content="No" Value="{Binding NoHasExperiencedRacismInCustody}" GroupName="YesNoHasExperiencedRacismInCustody" />
+				<Label Text="If yes, please tell us more and give us an example of what was said or done" Style="{DynamicResource ShowSurveyTextStyle}" />
                 <Entry Text="{Binding RacismExperiencedAtStation, Mode=TwoWay}" FontSize="Medium" Margin="0" />
-				<Label Text="If the answer to the above was 'Yes' please further details of the detainees experience" Style="{DynamicResource ShowSurveyTextStyle}" />
-                <Editor Text="{Binding RacismExperiencedAtStationExample, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
-                <StackLayout Orientation="Horizontal">
+				<Label Text="Have you sustained any injuries whilst you've been in custody?" Style="{DynamicResource ShowSurveyTextStyle}" />
+				<RadioButton Content="Yes" Value="{Binding YesSustainedInjuries}" GroupName="YesNoSustainedInjuries" />
+				<RadioButton Content="No" Value="{Binding NoSustainedInjuries}" GroupName="YesNoSustainedInjuries" />
+				<Label Text="If yes, please explain in detail" Style="{DynamicResource ShowSurveyTextStyle}" />
+				<Entry Text="{Binding SustainedInjuries, Mode=TwoWay}" FontSize="Medium" Margin="0" />
+				<StackLayout Orientation="Horizontal">
                     <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
                     <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
                 </StackLayout>
