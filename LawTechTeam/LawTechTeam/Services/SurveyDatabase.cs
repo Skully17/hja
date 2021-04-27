@@ -17,7 +17,7 @@ namespace LawTechTeam.Services
 
         public Task<List<Survey>> GetSurveysAsync_ID_Desc() //Sort by ID (descending) - default view
         {
-                return database.Table<Survey>().OrderByDescending(a => a.CaseID).ToListAsync();
+                return database.Table<Survey>().OrderByDescending(a => a.CaseId).ToListAsync();
         }
 
         public Task<List<Survey>> GetSurveysAsync_ID_Asc() //Sort by ID (ascending)
@@ -27,7 +27,7 @@ namespace LawTechTeam.Services
 
         public Task<Survey> GetSurveysAsync_ID_Asc(int id) //Sort by ID (ascending)
         {
-            return database.Table<Survey>().Where(i => i.CaseID == id).FirstOrDefaultAsync();
+            return database.Table<Survey>().Where(i => i.CaseId == id).FirstOrDefaultAsync();
         }
 
         public Task<List<Survey>> GetSurveysAsync_Station_Desc() //Sort by Station (descending)
@@ -52,7 +52,7 @@ namespace LawTechTeam.Services
 
         public Task<int> SaveSurveyAsync(Survey survey)
         {
-            if (survey.CaseID != 0)
+            if (survey.CaseId != 0)
             {
                 return database.UpdateAsync(survey);
             }

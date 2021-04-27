@@ -72,7 +72,7 @@ namespace LawTechTeam.ViewModels
             try
             {
                 Survey = await App.Database.GetSurveysAsync_ID_Asc(surveyId);
-                CaseID = Survey.CaseID;
+                CaseID = Survey.CaseId;
                 Station = Survey.Station;
                 Date = Survey.Date;
                 Time = Survey.Time;

@@ -1,8 +1,4 @@
 ﻿using LawTechTeam.Views;
-using System;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace LawTechTeam.ViewModels
@@ -55,7 +51,7 @@ namespace LawTechTeam.ViewModels
                 return;
 
             // This will push the SurveyDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(SurveyDetailPage)}?{nameof(SurveyDetailViewModel.CaseID)}={survey.CaseID}");
+            await Shell.Current.GoToAsync($"{nameof(SurveyDetailPage)}?{nameof(SurveyDetailViewModel.CaseID)}={survey.CaseId}");
         }
 
 
