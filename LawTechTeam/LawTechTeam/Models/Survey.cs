@@ -20,6 +20,18 @@ namespace LawTechTeam.Views
         public GenderEnum Gender { get; set; }
         public YesNoEnum SustainedInjuries { get; set; }
         public string InjuryDetail { get; set; }
+        public YesNoEnum WasStoppedAndSearched { get; set; }
+        public string StoppedAndSearchedReason { get; set; }
+        public bool DrugOffence { get; set; }
+        public bool WeaponOffence { get; set; }
+        public bool MinorAssaultOffence { get; set; }
+        public bool SeriousAssaultOffence { get; set; }
+        public bool SexualOffence { get; set; }
+        public bool PublicOrderOffence { get; set; }
+        public bool TheftOrRobberyOffence { get; set; }
+        public bool Fraud { get; set; }
+        public bool Driving { get; set; }
+        public bool Other { get; set; }
     }
 
 }
