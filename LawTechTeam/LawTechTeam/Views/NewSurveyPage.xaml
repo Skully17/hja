@@ -19,15 +19,15 @@
 	<ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="3" Padding="15">
-	            <Label Text="Do you feel like you have experienced any racism discrimination while you've been in custody?" Style="{DynamicResource DefaultTextStyle}" />
+	            <Label Text="Do you feel like you have experienced any racism while under arrest?" Style="{DynamicResource DefaultTextStyle}" />
 	            <RadioButton Content="Yes" IsChecked="{Binding YesHasExperiencedRacismInCustody}" GroupName="YesNoHasExperiencedRacismInCustody" />
 	            <RadioButton Content="No" IsChecked="{Binding NoHasExperiencedRacismInCustody}" GroupName="YesNoHasExperiencedRacismInCustody" />
 	            <Label Text="If yes, please tell us more and give us an example of what was said or done" Style="{DynamicResource DefaultTextStyle}" />
 	            <Entry Text="{Binding RacismExperiencedAtStation, Mode=TwoWay}" FontSize="Medium" Margin="0" />
-	            <Label Text="Have you sustained any injuries whilst you've been in custody?" Style="{DynamicResource DefaultTextStyle}" />
+	            <Label Text="Have you sustained any injuries whilst under arrest?" Style="{DynamicResource DefaultTextStyle}" />
 	            <RadioButton Content="Yes" IsChecked="{Binding YesSustainedInjuries}" GroupName="YesNoSustainedInjuries" />
 	            <RadioButton Content="No" IsChecked="{Binding NoSustainedInjuries}" GroupName="YesNoSustainedInjuries" />
-	            <Label Text="If yes, please explain in detail" Style="{DynamicResource DefaultTextStyle}" />
+	            <Label Text="If yes, please explain in more detail" Style="{DynamicResource DefaultTextStyle}" />
 	            <Entry Text="{Binding SustainedInjuries, Mode=TwoWay}" FontSize="Medium" Margin="0" />
 				<Label Text="Age" Style="{DynamicResource DefaultTextStyle}" />
 				<Picker HorizontalOptions="FillAndExpand" SelectedItem="{Binding DetaineeAge}" Style="{DynamicResource DefaultTextStyle}">
@@ -67,9 +67,10 @@
 						<x:String>Asian or Asian British</x:String>
 						<x:String>Black, African, Caribbean or Black British</x:String>
 						<x:String>Other</x:String>
+                        <x:String>Prefer not to say</x:String>
 					</Picker.Items>
 				</Picker>
-				<Label Text="What is the outward code of your area? (this code is the two to four characters before the space in your postcode)" Style="{DynamicResource DefaultTextStyle}" />
+				<Label Text="What is the outward code of your area? (this is first the two to four characters before the space in your postcode)" Style="{DynamicResource DefaultTextStyle}" />
                 <Entry Text="{Binding District, Mode=TwoWay}" FontSize="Medium" Margin="0" />
 				<Label Text="What offence(s) have you committed or believed to have committed?" Style="{DynamicResource DefaultTextStyle}" />
 				<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal">
