@@ -1,4 +1,5 @@
 ﻿using LawTechTeam.Views;
+using System.Data.SqlTypes;
 using Xamarin.Forms;
 
 namespace LawTechTeam.ViewModels

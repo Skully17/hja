@@ -86,5 +86,10 @@ namespace LawTechTeam.Views
             }
         }
 
+        private async void SurveySearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var Surveys = await App.Database.GetSurveysAsync_Search(SurveySearch.Text.ToLower());
+            SurveysListView.ItemsSource = await App.Database.GetSurveysAsync_Search(SurveySearch.Text.ToLower());
+        }
     }
 }
