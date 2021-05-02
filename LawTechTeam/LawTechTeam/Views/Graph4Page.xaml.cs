@@ -17,12 +17,16 @@ namespace LawTechTeam.Views
             new ChartEntry(32)
             {
                 Color = SKColor.Parse(Constants.colour1),
-                ValueLabel = "31.3%"
+                Label = "Yes",
+                ValueLabel = "31.3%",
+                ValueLabelColor = SKColor.Parse(Constants.colour1)
             },
             new ChartEntry(68)
             {
                 Color = SKColor.Parse(Constants.colour2),
+                Label = "No",
                 ValueLabel = "68.7%",
+                ValueLabelColor = SKColor.Parse(Constants.colour2)
             }
         };
         public Graph4Page()
@@ -33,7 +37,7 @@ namespace LawTechTeam.Views
             {
                 Entries = entries,
                 LabelTextSize = 40,
-                LabelMode = LabelMode.None
+                LabelMode = LabelMode.RightOnly
             };
         }
     }

@@ -14,34 +14,34 @@ namespace LawTechTeam.Views
     {
         private readonly ChartEntry[] entries = new[]
         {
-            new ChartEntry(80)
-            {
-                Color = SKColor.Parse(Constants.colour1),
-                Label = "No",
-                ValueLabel = "80%"
-            },
             new ChartEntry(20)
             {
                 Color = SKColor.Parse(Constants.colour1),
                 Label = "Yes",
                 ValueLabel = "20%"
             },
+            new ChartEntry(80)
+            {
+                Color = SKColor.Parse(Constants.colour1),
+                Label = "No",
+                ValueLabel = "80%"
+            },
             new ChartEntry(0)
             {
                 Color = SKColor.Parse(Constants.blank),
                 Label = ""
-            },
-            new ChartEntry(55)
-            {
-                Color = SKColor.Parse(Constants.colour2),
-                Label = "No",
-                ValueLabel = "55%"
             },
             new ChartEntry(45)
             {
                 Color = SKColor.Parse(Constants.colour2),
                 Label = "Yes",
                 ValueLabel = "45%"
+            },
+            new ChartEntry(55)
+            {
+                Color = SKColor.Parse(Constants.colour2),
+                Label = "No",
+                ValueLabel = "55%"
             }
         };
         public Graph3Page()
@@ -55,7 +55,8 @@ namespace LawTechTeam.Views
                 Margin = 20,
                 LabelOrientation = Orientation.Horizontal,
                 ValueLabelOrientation = Orientation.Horizontal,
-                MaxValue = 100
+                MaxValue = 100,
+                LabelColor = SKColor.Parse(Constants.body_text)
             };
         }
     }

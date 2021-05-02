@@ -18,8 +18,7 @@ namespace LawTechTeam.Views
             {
                 Color = SKColor.Parse(Constants.colour1),
                 Label = "Yes",
-                ValueLabel = "75",
-                ValueLabelColor = SKColor.Parse(Constants.body_text)
+                ValueLabel = "75"
             },
             new ChartEntry(250)
             {

@@ -17,21 +17,30 @@ namespace LawTechTeam.Views
             new ChartEntry(40)
             {
                 Color = SKColor.Parse(Constants.colour1),
-                //Label = "male",
-                //ValueLabel = "40",
-                //ValueLabelColor = SKColor.Parse("#0000ff")
+                Label = "Male",
+                ValueLabel = "40%",
+                ValueLabelColor = SKColor.Parse(Constants.colour1)
             },
             new ChartEntry(35)
             {
-                Color = SKColor.Parse(Constants.colour2)
+                Color = SKColor.Parse(Constants.colour2),
+                Label = "Female",
+                ValueLabel = "35%",
+                ValueLabelColor = SKColor.Parse(Constants.colour2)
             },
             new ChartEntry(15)
             {
-                Color = SKColor.Parse(Constants.colour3)
+                Color = SKColor.Parse(Constants.colour3),
+                Label = "Other",
+                ValueLabel = "15%",
+                ValueLabelColor = SKColor.Parse(Constants.colour3)
             },
-            new ChartEntry(5)
+            new ChartEntry(10)
             {
-                Color = SKColor.Parse(Constants.colour4)
+                Color = SKColor.Parse(Constants.colour4),
+                Label = "Prefer Not To Say",
+                ValueLabel = "10%",
+                ValueLabelColor = SKColor.Parse(Constants.colour4)
             }
         };
         public Graph2Page()
@@ -42,7 +51,7 @@ namespace LawTechTeam.Views
             {
                 Entries = entries,
                 LabelTextSize = 40,
-                GraphPosition = GraphPosition.AutoFill
+                LabelMode = LabelMode.RightOnly
             };
         }
     }
