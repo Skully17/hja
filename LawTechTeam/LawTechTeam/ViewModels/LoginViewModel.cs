@@ -12,7 +12,7 @@ namespace LawTechTeam.ViewModels
         public Command LoginCommand { get; }
         public Command RegisterCommand { get; }
 
-        public string Username { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
 
         public LoginViewModel()
@@ -23,7 +23,6 @@ namespace LawTechTeam.ViewModels
 
         async void RegisterClicked()
         {
-            //await Navigation.PushAsync(new RegistrationPage());
             App.Current.MainPage = new RegistrationPage();
         }
 
@@ -32,7 +31,7 @@ namespace LawTechTeam.ViewModels
             var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
             var db = new SQLiteConnection(dbpath);
 
-            var myquery = db.Table<RegUserTable>().Where(u => u.UserName.Equals(Username) && u.Password.Equals(Password)).FirstOrDefault();
+            var myquery = db.Table<RegUserTable>().Where(u => u.Email.Equals(Email) && u.Password.Equals(Password)).FirstOrDefault();
 
             if (myquery != null)
             {
@@ -52,7 +51,6 @@ namespace LawTechTeam.ViewModels
                         App.Current.MainPage = new LoginPage();
                     }
                 });
-                //LOGOUT BUTTON WILL TAKE YOU BACK TO LOGIN PAGE NOTHING MORE NOTHING LESS
             }
         }
     }

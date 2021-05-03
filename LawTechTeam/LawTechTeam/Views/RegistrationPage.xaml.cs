@@ -27,8 +27,8 @@ namespace LawTechTeam.Views
 
             var item = new RegUserTable()
             {
-                UserName = EntryUserName.Text,
-                Password = EntryUserName.Text,
+                Email = EntryEmail.Text,
+                Password = EntryUserPassword.Text,
                 Admin = EntryUserAdmin.Text,
                 FirstName = EntryFirstName.Text,
                 LastName = EntryLastName.Text,
