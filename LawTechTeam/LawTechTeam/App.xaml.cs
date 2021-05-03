@@ -27,7 +27,7 @@ namespace LawTechTeam
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new LoginPage();
 
             //var isLogged = Xamarin.Essentials.SecureStorage.GetAsync("isLogged").Result;
             //if (isLogged == "1")

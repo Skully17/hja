@@ -29,18 +29,15 @@ namespace LawTechTeam.Views
             {
                 UserName = EntryUserName.Text,
                 Password = EntryUserName.Text,
-                Admin = EntryUserAdmin.Text
+                Admin = EntryUserAdmin.Text,
+                FirstName = EntryFirstName.Text,
+                LastName = EntryLastName.Text,
+                RepresentativePIN = EntryRepPin.Text,
+                SupervisorPIN = EntrySupPin.Text
             };
 
             db.Insert(item);
-            Device.BeginInvokeOnMainThread(async () =>
-            {
-                var result = await this.DisplayAlert("Congratulations", "User Registration Successful", "Yes", "Cancel");
-
-                if (result)
-                    await Shell.Current.GoToAsync("//LoginPage");
-            });
-
+            App.Current.MainPage = new LoginPage();
         }
     }
 }

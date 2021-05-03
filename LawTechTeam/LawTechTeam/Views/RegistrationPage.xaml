@@ -8,9 +8,6 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <StackLayout Grid.Row="0">
                     <Entry Placeholder="UserName" FontSize="16" x:Name="EntryUserName"/>
@@ -19,12 +16,28 @@
                 <StackLayout Grid.Row="1">
                     <Entry Placeholder="Password" IsPassword="true" FontSize="16" x:Name="EntryUserPassword"/>
                 </StackLayout>
-
+                
                 <StackLayout Grid.Row="2">
                     <Entry Placeholder="AdminStatus" FontSize="16" x:Name="EntryUserAdmin"/>
                 </StackLayout>
 
                 <StackLayout Grid.Row="3">
+                    <Entry Placeholder="FirstName" FontSize="16" x:Name="EntryFirstName"/>
+                </StackLayout>
+                
+                <StackLayout Grid.Row="4">
+                    <Entry Placeholder="LastName" FontSize="16" x:Name="EntryLastName"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="5">
+                    <Entry Placeholder="Police Station Rep PIN" FontSize="16" x:Name="EntryRepPin"/>
+                </StackLayout>
+                
+                <StackLayout Grid.Row="6">
+                    <Entry Placeholder="Supervisor Pin" FontSize="16" x:Name="EntrySupPin"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="7">
                     <Button Text="Register" HorizontalOptions="CenterAndExpand" WidthRequest="100" TextColor="White" BackgroundColor="Blue" Clicked="Handle_Clicked"/>
                 </StackLayout>
 

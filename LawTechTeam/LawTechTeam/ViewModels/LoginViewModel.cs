@@ -42,14 +42,14 @@ namespace LawTechTeam.ViewModels
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    var result = await Application.Current.MainPage.DisplayAlert("Error", "Failed User Name and Password", "Yes", "Cancel");
+                    var result = await Application.Current.MainPage.DisplayAlert("Error", "Failed User Name and Password", "", "Ok");
 
                     if (result)
                         //await Navigation.PushAsync(new LoginPage());
-                        await Shell.Current.GoToAsync("//LoginPage");
+                        App.Current.MainPage = new LoginPage();
                     else
                     {
-                        await Shell.Current.GoToAsync("//LoginPage");
+                        App.Current.MainPage = new LoginPage();
                     }
                 });
                 //LOGOUT BUTTON WILL TAKE YOU BACK TO LOGIN PAGE NOTHING MORE NOTHING LESS
