@@ -16,6 +16,9 @@
     -->
     <RefreshView x:DataType="local:SurveysViewModel" Command="{Binding LoadSurveysCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
         <StackLayout>
+            <StackLayout>
+                <SearchBar x:Name="SurveySearch" Placeholder="Search..." TextChanged="SurveySearch_TextChanged"/>
+            </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="1,1" Padding="3,5">
                 <Button
                     x:Name="CaseIDButton" 

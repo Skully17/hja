@@ -6,16 +6,6 @@
     x:Class="LawTechTeam.Views.Graph1Page"
     Title="Discrimination In Custody">
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="colour1">#4472c4</Color>
-            <Color x:Key="colour2">#ed7d31</Color>
-            <Color x:Key="colour3">#70ad47</Color>
-            <Color x:Key="colour4">#ffc000</Color>
-            <Color x:Key="colour5">#7030a0</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
     <ScrollView>
         <StackLayout>
             <Label
@@ -28,23 +18,23 @@
             />
             <StackLayout Orientation="Horizontal" HorizontalOptions="End">
                 <Label Text="White" FontSize="Body"/>
-                <BoxView BackgroundColor="{StaticResource colour1}" HeightRequest="20" WidthRequest="20" Margin="0, 0, 10, 0"/>
+                <BoxView BackgroundColor="{StaticResource GraphColour1}" HeightRequest="20" WidthRequest="20" Margin="0, 0, 10, 0"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="End">
                 <Label Text="Mixed Or Multiple Ethnic Groups" FontSize="Body" HorizontalOptions="End"/>
-                <BoxView BackgroundColor="{StaticResource colour2}" HeightRequest="20" WidthRequest="20" Margin="0, 0, 10, 0"/>
+                <BoxView BackgroundColor="{StaticResource GraphColour2}" HeightRequest="20" WidthRequest="20" Margin="0, 0, 10, 0"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="End">
                 <Label Text="Asian Or Asian British" FontSize="Body" HorizontalOptions="End"/>
-                <BoxView BackgroundColor="{StaticResource colour3}" HeightRequest="20" WidthRequest="20" Margin="0, 0, 10, 0"/>
+                <BoxView BackgroundColor="{StaticResource GraphColour3}" HeightRequest="20" WidthRequest="20" Margin="0, 0, 10, 0"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="End">
                 <Label Text="Black, African, Carribean Or Black British" FontSize="Body" HorizontalOptions="End"/>
-                <BoxView BackgroundColor="{StaticResource colour4}" HeightRequest="20" WidthRequest="20" Margin="0, 0, 10, 0"/>
+                <BoxView BackgroundColor="{StaticResource GraphColour4}" HeightRequest="20" WidthRequest="20" Margin="0, 0, 10, 0"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="End">
                 <Label Text="Other" FontSize="Body" HorizontalOptions="End"/>
-                <BoxView BackgroundColor="{StaticResource colour5}" HeightRequest="20" WidthRequest="20" Margin="0, 0, 10, 20"/>
+                <BoxView BackgroundColor="{StaticResource GraphColour5}" HeightRequest="20" WidthRequest="20" Margin="0, 0, 10, 20"/>
             </StackLayout>
             <microcharts:ChartView x:Name="graph" HeightRequest="300" />
         </StackLayout>

@@ -56,14 +56,18 @@ namespace LawTechTeam.ViewModels
 
         public async void OnDeleteSurvey()
         {
-            try
+            var result = await Application.Current.MainPage.DisplayAlert("WARNING!", "Are You Sure You Want To Delete This Survey?", "Yes", "No");
+            if (result == true)
             {
-                await App.Database.DeleteSurveyAsync(Survey);
-                await Shell.Current.GoToAsync("..");
-            }
-            catch (Exception)
-            {
-                Debug.WriteLine("Failed to delete survey");
+                try
+                {
+                    await App.Database.DeleteSurveyAsync(Survey);
+                    await Shell.Current.GoToAsync("..");
+                }
+                catch (Exception)
+                {
+                    Debug.WriteLine("Failed to delete survey");
+                }
             }
         }
 

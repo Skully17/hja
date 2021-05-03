@@ -50,6 +50,13 @@ namespace LawTechTeam.Services
             return database.Table<Survey>().ToListAsync();
         }
 
+        public Task<List<Survey>> GetSurveysAsync_Search(string search) //Show searched survey
+        {
+            int.TryParse(search, out int test);
+
+            return database.Table<Survey>().Where(a => a.Station.ToLower().Contains(search) || a.Date.ToLower().Contains(search) || a.CaseId == test).OrderByDescending(a => a.CaseId).ToListAsync();
+        }
+
         public Task<int> SaveSurveyAsync(Survey survey)
         {
             if (survey.CaseId != 0)

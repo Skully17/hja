@@ -18,12 +18,27 @@ namespace LawTechTeam.ViewModels
         private int _hasExperiencedRacism;
         private int _hasExperiencedRacismInCustody;
         private int _hasHadInjuryInCustody;
-        private int _sustainedInjuries;
+        private int _hasBeenStoppedAndSearched;
         private string _racismExperience;
         private string _racismExperiencedInTimeAtStation;
         private string _district;
         private string _committedOffences;
         private string _injuryDetail;
+        private string _stoppedAndSearchedReason;
+        private bool _drugPossession;
+        private bool _weaponPossession;
+        private bool _minorAssault;
+        private bool _seriousAssault;
+        private bool _sexualOffences;
+        private bool _publicOrderOffences;
+        private bool _theftOrRobbery;
+        private bool _fraud;
+        private bool _driving;
+        private bool _other;
+        private int _noHasHadInjuryInCustody;
+        private int _noHasExperiencedRacismInCustody;
+        private int _noHasExperiencedRacism;
+        private int _noHasBeenStoppedAndSearched;
 
         public NewSurveyViewModel()
         {
@@ -41,6 +56,72 @@ namespace LawTechTeam.ViewModels
             //    && !String.IsNullOrEmpty(RacismExperiencedAtStation)
             //    && !String.IsNullOrEmpty(RacismExperiencedAtStationExample);
             return true;
+        }
+
+        public bool DrugPossession
+        {
+            get => _drugPossession;
+            set => SetProperty(ref _drugPossession, value);
+        }
+
+        public bool WeaponPossession
+        {
+            get => _weaponPossession;
+            set => SetProperty(ref _weaponPossession, value);
+        }
+
+        public bool MinorAssault
+        {
+            get => _minorAssault;
+            set => SetProperty(ref _minorAssault, value);
+        }
+
+        public bool SeriousAssault
+        {
+            get => _seriousAssault;
+            set => SetProperty(ref _seriousAssault, value);
+        }
+
+        public bool SexualOffences
+        {
+            get => _sexualOffences;
+            set => SetProperty(ref _sexualOffences, value);
+        }
+
+        public bool TheftOrRobbery
+        {
+            get => _theftOrRobbery;
+            set => SetProperty(ref _theftOrRobbery, value);
+        }
+
+        public bool Fraud
+        {
+            get => _fraud;
+            set => SetProperty(ref _fraud, value);
+        }
+
+        public bool PublicOrderOffences
+        {
+            get => _publicOrderOffences;
+            set => SetProperty(ref _publicOrderOffences, value);
+        }
+
+        public bool Driving
+        {
+            get => _driving;
+            set => SetProperty(ref _driving, value);
+        }
+
+        public bool OtherOffence
+        {
+            get => _other;
+            set => SetProperty(ref _other, value);
+        }
+
+        public string StoppedAndSearchedReason
+        {
+            get => _stoppedAndSearchedReason;
+            set => SetProperty(ref _stoppedAndSearchedReason, value);
         }
 
         public string Station
@@ -85,6 +166,18 @@ namespace LawTechTeam.ViewModels
             set => SetProperty(ref _detaineePfntsGender, value);
         }
 
+        public int YesStoppedAndSearched
+        {
+            get => _hasBeenStoppedAndSearched;
+            set => SetProperty(ref _hasBeenStoppedAndSearched, value);
+        }
+
+        public int NoStoppedAndSearched
+        {
+            get => _noHasBeenStoppedAndSearched;
+            set => SetProperty(ref _noHasBeenStoppedAndSearched, value);
+        }
+
         public int YesHasExperiencedRacism
         {
             get => _hasExperiencedRacism;
@@ -93,8 +186,8 @@ namespace LawTechTeam.ViewModels
 
         public int NoHasExperiencedRacism
         {
-            get => _hasExperiencedRacism;
-            set => SetProperty(ref _hasExperiencedRacism, value);
+            get => _noHasExperiencedRacism;
+            set => SetProperty(ref _noHasExperiencedRacism, value);
         }
 
         public int YesHasExperiencedRacismInCustody
@@ -105,8 +198,8 @@ namespace LawTechTeam.ViewModels
 
         public int NoHasExperiencedRacismInCustody
         {
-            get => _hasExperiencedRacismInCustody;
-            set => SetProperty(ref _hasExperiencedRacismInCustody, value);
+            get => _noHasExperiencedRacismInCustody;
+            set => SetProperty(ref _noHasExperiencedRacismInCustody, value);
         }
 
         public int YesSustainedInjuries
@@ -117,8 +210,8 @@ namespace LawTechTeam.ViewModels
 
         public int NoSustainedInjuries
         {
-            get => _hasHadInjuryInCustody;
-            set => SetProperty(ref _hasHadInjuryInCustody, value);
+            get => _noHasHadInjuryInCustody;
+            set => SetProperty(ref _noHasHadInjuryInCustody, value);
         }
 
         public string District
@@ -181,7 +274,19 @@ namespace LawTechTeam.ViewModels
                 HasExperiencedRacismInPast = YesHasExperiencedRacism > 0 ? YesNoEnum.Yes : NoHasExperiencedRacism > 0 ? YesNoEnum.No : YesNoEnum.Default,
                 HasExperiencedRacismInCustody = YesHasExperiencedRacismInCustody > 0 ? YesNoEnum.Yes : NoHasExperiencedRacismInCustody > 0 ? YesNoEnum.No : YesNoEnum.Default,
                 SustainedInjuries = YesSustainedInjuries > 0 ? YesNoEnum.Yes : NoSustainedInjuries > 0 ? YesNoEnum.No : YesNoEnum.Default,
-                InjuryDetail = SustainedInjuries
+                InjuryDetail = SustainedInjuries,
+                WasStoppedAndSearched = YesStoppedAndSearched > 0 ? YesNoEnum.Yes : NoStoppedAndSearched > 0 ? YesNoEnum.No : YesNoEnum.Default,
+                StoppedAndSearchedReason = StoppedAndSearchedReason,
+                DrugOffence = DrugPossession,
+                Fraud = Fraud,
+                MinorAssaultOffence = MinorAssault,
+                Driving = Driving,
+                PublicOrderOffence = PublicOrderOffences,
+                SeriousAssaultOffence = SeriousAssault,
+                TheftOrRobberyOffence = TheftOrRobbery,
+                SexualOffence = SexualOffences,
+                WeaponOffence = WeaponPossession,
+                Other = OtherOffence
             };
 
             await App.Database.SaveSurveyAsync(newSurvey);

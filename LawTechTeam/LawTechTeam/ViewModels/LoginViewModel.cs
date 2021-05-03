@@ -17,17 +17,17 @@ namespace LawTechTeam.ViewModels
 
         public LoginViewModel()
         {
-            LoginCommand = new Command(Handle_Clicked_1);
-            RegisterCommand = new Command(Handle_Clicked);
+            LoginCommand = new Command(LoginClicked);
+            RegisterCommand = new Command(RegisterClicked);
         }
 
-        async void Handle_Clicked()
+        async void RegisterClicked()
         {
             //await Navigation.PushAsync(new RegistrationPage());
             App.Current.MainPage = new RegistrationPage();
         }
 
-        async void Handle_Clicked_1()
+        async void LoginClicked()
         {
             var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
             var db = new SQLiteConnection(dbpath);
