@@ -42,6 +42,7 @@ namespace LawTechTeam.ViewModels
 
         public NewSurveyViewModel()
         {
+            StationPopupCommand = new Command(OnStationPopup);
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
             PropertyChanged += (_, __) => SaveCommand.ChangeCanExecute();
@@ -250,8 +251,14 @@ namespace LawTechTeam.ViewModels
             set => SetProperty(ref _injuryDetail, value);
         }
 
+        public Command StationPopupCommand { get; }
         public Command SaveCommand { get; }
         public Command CancelCommand { get; }
+
+        private async void OnStationPopup()
+        {
+            var result = await Application.Current.MainPage.DisplayPromptAsync("Question 1", "What's your name?");
+        }
 
         private async void OnCancel()
         {

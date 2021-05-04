@@ -56,7 +56,7 @@ namespace LawTechTeam.ViewModels
 
         public async void OnDeleteSurvey()
         {
-            var result = await Application.Current.MainPage.DisplayAlert("WARNING!", "Are You Sure You Want To Delete This Survey?", "Yes", "No");
+            var result = await Application.Current.MainPage.DisplayAlert("WARNING", "Are you sure you want to delete this survey?", "Yes", "No");
             if (result == true)
             {
                 try

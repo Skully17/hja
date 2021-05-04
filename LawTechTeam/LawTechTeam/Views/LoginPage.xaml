@@ -4,7 +4,8 @@
              x:Class="LawTechTeam.Views.LoginPage">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
+            <StackLayout BackgroundColor="#fafafa">
+                <Image Source="hja_logo.png" Aspect="AspectFit" Margin="0, 40, 0, 0" WidthRequest="250"/>
                 <Grid VerticalOptions="CenterAndExpand">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -12,10 +13,10 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Entry Placeholder="Email" Text="{Binding Email}" Grid.Row="0"/>
-                    <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True" Grid.Row="1"/>
-                    <Button Text="Login" Grid.Row="2" BackgroundColor="#0077be" TextColor="White" Command="{Binding LoginCommand}"/>
-                    <Button Text="SignUp" Grid.Row="3" Command="{Binding RegisterCommand}"/>
+                    <Entry Placeholder="Email" Text="{Binding Email}" Margin="10, 5, 10, 5" Grid.Row="0"/>
+                    <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True" Margin="10, 5, 10, 5" Grid.Row="1"/>
+                    <Button Text="Login" Margin="10, 5, 10, 5" Command="{Binding LoginCommand}" Grid.Row="2"/>
+                    <Button Text="Create Account" Margin="10, 5, 10, 5" BackgroundColor="#fafafa" BorderWidth="1" BorderColor="Black" TextColor="{StaticResource Primary}" Command="{Binding RegisterCommand}" Grid.Row="3"/>
                 </Grid>
             </StackLayout>
         </ScrollView>

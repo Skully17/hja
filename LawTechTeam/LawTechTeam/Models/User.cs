@@ -17,14 +17,14 @@ namespace LawTechTeam.Views
             this.Password = Password;
         }
 
-        public bool CheckInInformation()
-        {
-            return true;
-            if (!this.Username.Equals("") && !this.Password.Equals(""))
-                return true;
-            else
-                return false;
-        }
+        //public bool CheckInInformation()
+        //{
+        //    return true;
+        //    if (!this.Username.Equals("") && !this.Password.Equals(""))
+        //        return true;
+        //    else
+        //        return false;
+        //}
     }
 }
 

@@ -25,18 +25,33 @@ namespace LawTechTeam.Views
             var db = new SQLiteConnection(dbpath);
             db.CreateTable<RegUserTable>();
 
-            var item = new RegUserTable()
+            if (EntryEmail.Text == null || EntryUserPassword.Text == null || EntryUserAdmin.Text == null || EntryFirstName.Text == null || EntryLastName.Text == null || EntryRepPin.Text == null)
             {
-                Email = EntryEmail.Text,
-                Password = EntryUserPassword.Text,
-                Admin = EntryUserAdmin.Text,
-                FirstName = EntryFirstName.Text,
-                LastName = EntryLastName.Text,
-                RepresentativePIN = EntryRepPin.Text,
-                SupervisorPIN = EntrySupPin.Text
-            };
+                Application.Current.MainPage.DisplayAlert("Error", "Not all required details have been entered", "Ok");
+            }
 
-            db.Insert(item);
+            else
+            { 
+                var item = new RegUserTable()
+                {
+                    Email = EntryEmail.Text,
+                    Password = EntryUserPassword.Text,
+                    Admin = EntryUserAdmin.Text,
+                    FirstName = EntryFirstName.Text,
+                    LastName = EntryLastName.Text,
+                    RepresentativePIN = EntryRepPin.Text,
+                    SupervisorPIN = EntrySupPin.Text
+                };
+
+                db.Insert(item);
+                App.Current.MainPage = new LoginPage();
+            }
+
+            
+        }
+
+        void CancelClicked(object sender, System.EventArgs e)
+        {
             App.Current.MainPage = new LoginPage();
         }
     }
