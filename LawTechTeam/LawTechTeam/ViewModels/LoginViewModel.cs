@@ -35,6 +35,7 @@ namespace LawTechTeam.ViewModels
 
             if (myquery != null)
             {
+                set_current_user(myquery.Email);
                 App.Current.MainPage = new AppShell();
             }
             else
@@ -51,6 +52,17 @@ namespace LawTechTeam.ViewModels
                         App.Current.MainPage = new LoginPage();
                     }
                 });
+            }
+        }
+        void set_current_user (string email)
+        {
+            if (App.Current.Properties.ContainsKey("current_user"))
+            {
+                App.Current.Properties["current_user"] = email;
+            }
+            else
+            {
+                App.Current.Properties.Add("current_user", email);
             }
         }
     }
