@@ -11,7 +11,7 @@
     <ScrollView>
         <StackLayout Spacing="20" Padding="15">
             <StackLayout Orientation="Horizontal">
-                <Label Style="{DynamicResource DefaultTextStyle}" Text="Case ID:  "/>
+                <Label Style="{DynamicResource DefaultTextStyle}" Text="Survey ID:  "/>
                 <Label Style="{DynamicResource DefaultTextStyle}" Text="{Binding DisplayCaseID}"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">

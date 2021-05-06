@@ -38,7 +38,7 @@
                 <Label Text="{Binding Password}" Style="{DynamicResource DefaultTextStyle}" />
             </StackLayout>
             <StackLayout Padding="10" Orientation="Horizontal">
-                <Label Text="PIN: " Style="{DynamicResource DefaultTextStyle}" />
+                <Label Text="Station Representative PIN: " Style="{DynamicResource DefaultTextStyle}" />
                 <Label Text="{Binding PIN}" Style="{DynamicResource DefaultTextStyle}" />
             </StackLayout>
             <StackLayout Padding="10" Orientation="Horizontal">

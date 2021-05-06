@@ -32,11 +32,11 @@
                 </StackLayout>
 
                 <StackLayout Grid.Row="6">
-                    <Entry Placeholder="Police Station Rep PIN" FontSize="16" x:Name="EntryRepPin"/>
+                    <Entry Placeholder="Police Station Representative PIN" FontSize="16" x:Name="EntryRepPin"/>
                 </StackLayout>
                 
                 <StackLayout Grid.Row="7">
-                    <Entry Placeholder="Supervisor Pin" FontSize="16" x:Name="EntrySupPin"/>
+                    <Entry Placeholder="Supervisor PIN" FontSize="16" x:Name="EntrySupPin"/>
                 </StackLayout>
 
                 <StackLayout Grid.Row="8" Orientation="Horizontal">

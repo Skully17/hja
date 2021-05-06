@@ -22,11 +22,11 @@
             <StackLayout Orientation="Horizontal" Margin="1,1" Padding="3,5">
                 <Button
                     x:Name="CaseIDButton" 
-                    Text="Case ID ▼" 
+                    Text="Survey ID ▼" 
                     Clicked="CaseIDButton_Clicked" 
                     HorizontalOptions="StartAndExpand"  
                     VerticalOptions="StartAndExpand"
-                    WidthRequest="100"
+                    WidthRequest="110"
                 />
                 <Button
                     x:Name="PoliceStationButton" 
@@ -34,7 +34,7 @@
                     Clicked="PoliceStationButton_Clicked" 
                     HorizontalOptions="CenterAndExpand" 
                     VerticalOptions="StartAndExpand"
-                    WidthRequest="190" 
+                    WidthRequest="185" 
                 />
                 <Button 
                     x:Name="DateButton" 
@@ -42,7 +42,7 @@
                     Clicked="DateButton_Clicked" 
                     HorizontalOptions="EndAndExpand" 
                     VerticalOptions="StartAndExpand"
-                    WidthRequest="100" 
+                    WidthRequest="95" 
                 />
             </StackLayout>
             <CollectionView x:Name="SurveysListView"
@@ -55,21 +55,21 @@
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListSurveyTextStyle}"
                                 HorizontalOptions="StartAndExpand"
-                                WidthRequest="75"
+                                WidthRequest="110"
                                 HorizontalTextAlignment="Center"
                             />
                             <Label Text="{Binding Station}" 
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListSurveyTextStyle}"
                                 HorizontalOptions="CenterAndExpand"
-                                WidthRequest="250"
+                                WidthRequest="185"
                                 HorizontalTextAlignment="Center" 
                             />
                             <Label Text="{Binding Date}" 
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListSurveyTextStyle}"
                                 HorizontalOptions="EndAndExpand"
-                                WidthRequest="90"  
+                                WidthRequest="95"  
                                 HorizontalTextAlignment="Center"
                             />
                             <StackLayout.GestureRecognizers>
