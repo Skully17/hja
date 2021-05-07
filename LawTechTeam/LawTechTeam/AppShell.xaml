@@ -29,6 +29,11 @@
                 <Setter Property="TextColor" Value="{StaticResource Primary}"/>
                 <Setter Property="FontSize" Value="Medium"/>
             </Style>
+            <Style x:Key="QuestionTextStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Primary}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
         </ResourceDictionary>
     </Shell.Resources>
 

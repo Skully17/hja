@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LawTechTeam.ViewModels;
+using System;
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,6 +11,7 @@ namespace LawTechTeam.Views
         public SettingsPage()
         {
             InitializeComponent();
+            BindingContext = new SettingsViewModel();
         }
     }
 }

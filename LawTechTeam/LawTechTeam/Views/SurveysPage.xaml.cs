@@ -34,15 +34,15 @@ namespace LawTechTeam.Views
 
         private async void CaseIDButton_Clicked(object sender, EventArgs e)
         {
-            if (CaseIDButton.Text == "Case ID ▼")
+            if (CaseIDButton.Text == "Survey ID ▼")
             {
-                CaseIDButton.Text = "Case ID ▲";
+                CaseIDButton.Text = "Survey ID ▲";
                 var Surveys = await App.Database.GetSurveysAsync_ID_Asc();
                 SurveysListView.ItemsSource = await App.Database.GetSurveysAsync_ID_Asc();
             }
             else
             {
-                CaseIDButton.Text = "Case ID ▼";
+                CaseIDButton.Text = "Survey ID ▼";
                 PoliceStationButton.Text = "Police Station";
                 DateButton.Text = "Date";
                 var Surveys = await App.Database.GetSurveysAsync_ID_Desc();
@@ -61,7 +61,7 @@ namespace LawTechTeam.Views
             else
             {
                 PoliceStationButton.Text = "Police Station ▼";
-                CaseIDButton.Text = "Case ID";
+                CaseIDButton.Text = "Survey ID";
                 DateButton.Text = "Date";
                 var Surveys = await App.Database.GetSurveysAsync_Station_Desc();
                 SurveysListView.ItemsSource = await App.Database.GetSurveysAsync_Station_Desc();
@@ -79,7 +79,7 @@ namespace LawTechTeam.Views
             else
             {
                 DateButton.Text = "Date ▼";
-                CaseIDButton.Text = "Case ID";
+                CaseIDButton.Text = "Survey ID";
                 PoliceStationButton.Text = "Police Station";
                 var Surveys = await App.Database.GetSurveysAsync_Date_Desc();
                 SurveysListView.ItemsSource = await App.Database.GetSurveysAsync_Date_Desc();
