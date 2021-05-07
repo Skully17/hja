@@ -12,36 +12,36 @@
                 <Image Source="hja_logo.png" Aspect="AspectFit" Margin="0, 0, 0, 20" WidthRequest="125"/>
 
                 <StackLayout Grid.Row="1">
-                    <Entry Placeholder="Email" FontSize="16" x:Name="EntryEmail"/>
+                    <Entry Text="{Binding Email, Mode=TwoWay}" Placeholder="Email" FontSize="16"/>
                 </StackLayout>
 
                 <StackLayout Grid.Row="2">
-                    <Entry Placeholder="Password" IsPassword="true" FontSize="16" x:Name="EntryUserPassword"/>
+                    <Entry Text="{Binding Password, Mode=TwoWay}" Placeholder="Password" IsPassword="true" FontSize="16"/>
                 </StackLayout>
                 
                 <StackLayout Grid.Row="3">
-                    <Entry Placeholder="Admin Status" FontSize="16" x:Name="EntryUserAdmin"/>
+                    <Entry Text="{Binding Admin, Mode=TwoWay}" Placeholder="Admin Status" FontSize="16"/>
                 </StackLayout>
 
                 <StackLayout Grid.Row="4">
-                    <Entry Placeholder="First Name" FontSize="16" x:Name="EntryFirstName"/>
+                    <Entry Text="{Binding Firstname, Mode=TwoWay}" Placeholder="First Name" FontSize="16"/>
                 </StackLayout>
                 
                 <StackLayout Grid.Row="5">
-                    <Entry Placeholder="Last Name" FontSize="16" x:Name="EntryLastName"/>
+                    <Entry Text="{Binding Lastname, Mode=TwoWay}" Placeholder="Last Name" FontSize="16"/>
                 </StackLayout>
 
                 <StackLayout Grid.Row="6">
-                    <Entry Placeholder="Police Station Rep PIN" FontSize="16" x:Name="EntryRepPin"/>
+                    <Entry Text="{Binding RepPIN, Mode=TwoWay}" Placeholder="Police Station Rep PIN" FontSize="16"/>
                 </StackLayout>
                 
                 <StackLayout Grid.Row="7">
-                    <Entry Placeholder="Supervisor Pin" FontSize="16" x:Name="EntrySupPin"/>
+                    <Entry Text="{Binding SuperPIN, Mode=TwoWay}" Placeholder="Supervisor Pin" FontSize="16"/>
                 </StackLayout>
 
                 <StackLayout Grid.Row="8" Orientation="Horizontal">
-                    <Button Text="Cancel" HorizontalOptions="CenterAndExpand" WidthRequest="150" BackgroundColor="#fafafa" BorderWidth="1" BorderColor="Black" TextColor="{StaticResource Primary}" Clicked="CancelClicked"/>
-                    <Button Text="Register" HorizontalOptions="CenterAndExpand" WidthRequest="150" Clicked="Handle_Clicked"/>
+                    <Button Text="Cancel" HorizontalOptions="CenterAndExpand" WidthRequest="150" BackgroundColor="#fafafa" BorderWidth="1" BorderColor="Black" TextColor="{StaticResource Primary}" Command="{Binding CancelCommand}"/>
+                    <Button Text="Register" HorizontalOptions="CenterAndExpand" WidthRequest="150" Command="{Binding RegisterCommand}"/>
                 </StackLayout>
 
             </Grid>

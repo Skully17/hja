@@ -18,37 +18,35 @@
                        HorizontalOptions="Center" 
                        HorizontalTextAlignment="Center"/>
             </StackLayout>
-            <StackLayout Padding="10" Orientation="Horizontal">
-                <Label Text="Full Name: " Style="{DynamicResource DefaultTextStyle}" />
-                <Label Style="{DynamicResource DefaultTextStyle}">
-                    <Label.Text>
-                        <MultiBinding StringFormat="{}{0} {1}">
-                            <Binding Path="FirstName"/>
-                            <Binding Path="LastName"/>
-                        </MultiBinding>
-                    </Label.Text>
-                </Label>
+            <Grid Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Text="First Name: " Style="{DynamicResource DefaultTextStyle}" Padding="0, 10, 0, 0"/>
+                <Entry Grid.Row="0" Grid.Column="2" Text="{Binding Firstname, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" WidthRequest="200"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Last Name: " Style="{DynamicResource DefaultTextStyle}" Padding="0, 10, 0, 0"/>
+                <Entry Grid.Row="1" Grid.Column="2" Text="{Binding Lastname, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" WidthRequest="200"/>
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Email Address: " Style="{DynamicResource DefaultTextStyle}" Padding="0, 10, 0, 0"/>
+                <Entry Grid.Row="2" Grid.Column="2" Text="{Binding Email, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" WidthRequest="200"/>
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Password: " Style="{DynamicResource DefaultTextStyle}" Padding="0, 10, 0, 0"/>
+                <Entry Grid.Row="3" Grid.Column="2" Text="{Binding Password, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" IsPassword="True" WidthRequest="200"/>
+
+                <Label Grid.Row="4" Grid.Column="0" Text="Representative PIN: " Style="{DynamicResource DefaultTextStyle}" Padding="0, 10, 0, 0"/>
+                <Entry Grid.Row="4" Grid.Column="2" Text="{Binding RepPIN, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" WidthRequest="200"/>
+
+                <Label Grid.Row="5" Grid.Column="0" Text="Supervisor PIN: " Style="{DynamicResource DefaultTextStyle}" Padding="0, 10, 0, 0"/>
+                <Entry Grid.Row="5" Grid.Column="2" Text="{Binding SuperPIN, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" WidthRequest="200"/>
+            </Grid>
+            <StackLayout Margin="10, 5, 10, 5">
+                <Button Text="Save Changes" Command="{Binding SaveButton}"/>
+                <Button Text="Log Out" Command="{Binding LogOut}" BackgroundColor="#fafafa" BorderWidth="1" BorderColor="Black" TextColor="{StaticResource Primary}"/>
             </StackLayout>
-            <StackLayout Padding="10" Orientation="Horizontal">
-                <Label Text="Email Address: " Style="{DynamicResource DefaultTextStyle}" />
-                <Label Text="{Binding Email}" Style="{DynamicResource DefaultTextStyle}" />
-            </StackLayout>
-            <StackLayout Padding="10" Orientation="Horizontal" >
-                <Label Text="Password: " Style="{DynamicResource DefaultTextStyle}" />
-                <Label Text="{Binding Password}" Style="{DynamicResource DefaultTextStyle}" />
-            </StackLayout>
-            <StackLayout Padding="10" Orientation="Horizontal">
-                <Label Text="PIN: " Style="{DynamicResource DefaultTextStyle}" />
-                <Label Text="{Binding PIN}" Style="{DynamicResource DefaultTextStyle}" />
-            </StackLayout>
-            <StackLayout Padding="10" Orientation="Horizontal">
-                <Label Text="Supervisor PIN: " Style="{DynamicResource DefaultTextStyle}" />
-                <Label Text="{Binding SuperPIN}" Style="{DynamicResource DefaultTextStyle}" />
-            </StackLayout>
-            <StackLayout Padding="10">
-                <Button Text="Log Out" HorizontalOptions="Center" Command="{Binding LogOut}"/>
-            </StackLayout>
-            
+
         </StackLayout>
         
     </ScrollView>

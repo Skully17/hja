@@ -13,6 +13,7 @@ namespace LawTechTeam.Services
         {
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<Survey>().Wait();
+            database.CreateTableAsync<RegUserTable>().Wait();
         }
 
         public Task<List<Survey>> GetSurveysAsync_ID_Desc() //Sort by ID (descending) - default view
@@ -74,5 +75,33 @@ namespace LawTechTeam.Services
             return database.DeleteAsync(survey);
         }
 
+        public Task<List<RegUserTable>> GetUsers()
+        {
+            return database.Table<RegUserTable>().ToListAsync();
+        }
+        public Task<RegUserTable> GetUser(int user_id)
+        {
+            return database.Table<RegUserTable>().Where(i => i.UserId == user_id).FirstOrDefaultAsync();
+        }
+        public void SaveUserAsync(RegUserTable user)
+        {
+            if (user.Email == null || user.Password == null || user.Admin == null || user.FirstName == null || user.LastName == null || user.RepresentativePIN == null)
+            {
+                App.Current.MainPage.DisplayAlert("Error", "Not all required details have been entered", "Ok");
+            }
+
+            else if (user.UserId != 0)
+            {
+                database.UpdateAsync(user);
+            }
+            else
+            {
+                database.InsertAsync(user);
+            }
+        }
+        public Task<RegUserTable> ValidateLogin(string email, string password)
+        {
+            return database.Table<RegUserTable>().Where(u => u.Email.Equals(email) && u.Password.Equals(password)).FirstOrDefaultAsync();
+        }
     }
 }

@@ -1,8 +1,4 @@
-﻿using LawTechTeam.Services;
-using LawTechTeam.Views;
-using SQLite;
-using System;
-using System.IO;
+﻿using LawTechTeam.Views;
 using Xamarin.Forms;
 
 namespace LawTechTeam.ViewModels
@@ -28,14 +24,10 @@ namespace LawTechTeam.ViewModels
 
         async void LoginClicked()
         {
-            var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
-            var db = new SQLiteConnection(dbpath);
-
-            var myquery = db.Table<RegUserTable>().Where(u => u.Email.Equals(Email) && u.Password.Equals(Password)).FirstOrDefault();
-
-            if (myquery != null)
+            var user = await App.Database.ValidateLogin(Email, Password);
+            if (user != null)
             {
-                set_current_user(myquery.Email);
+                SetCurrentUser(user.UserId);
                 App.Current.MainPage = new AppShell();
             }
             else
@@ -54,15 +46,15 @@ namespace LawTechTeam.ViewModels
                 });
             }
         }
-        void set_current_user (string email)
+        void SetCurrentUser (int user_id)
         {
             if (App.Current.Properties.ContainsKey("current_user"))
             {
-                App.Current.Properties["current_user"] = email;
+                App.Current.Properties["current_user"] = user_id;
             }
             else
             {
-                App.Current.Properties.Add("current_user", email);
+                App.Current.Properties.Add("current_user", user_id);
             }
         }
     }

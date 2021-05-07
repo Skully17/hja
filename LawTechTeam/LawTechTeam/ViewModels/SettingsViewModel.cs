@@ -12,34 +12,40 @@ namespace LawTechTeam.ViewModels
     public class SettingsViewModel : BaseViewModel
     {
         public Command LogOut { get; }
+        public Command SaveButton { get; }
+        private int user_id;
         private string email;
         private string firstname;
         private string lastname;
         private string password;
-        private string pin;
+        private string admin;
+        private string rep_pin;
         private string supervisor_pin;
 
         public SettingsViewModel()
         {
             Title = "Settings";
             LogOut = new Command(LogOutClicked);
-            Email = App.Current.Properties["current_user"] as string;
+            UserID = (int)App.Current.Properties["current_user"];
+            GetUserDetails();
+            SaveButton = new Command(OnSaveDetails);
+        }
+        public int UserID
+        {
+            get => user_id;
+            set => SetProperty(ref user_id, value);
         }
         public string Email
         {
             get => email;
-            set
-            {
-                SetProperty(ref email, value);
-                SetUserDetails();
-            }
+            set => SetProperty(ref email, value);
         }
-        public string FirstName
+        public string Firstname
         {
             get => firstname;
             set => SetProperty(ref firstname, value);
         }
-        public string LastName
+        public string Lastname
         {
             get => lastname;
             set => SetProperty(ref lastname, value);
@@ -49,10 +55,15 @@ namespace LawTechTeam.ViewModels
             get => password;
             set => SetProperty(ref password, value);
         }
-        public string PIN
+        public string Admin
         {
-            get => pin;
-            set => SetProperty(ref pin, value);
+            get => admin;
+            set => SetProperty(ref admin, value);
+        }
+        public string RepPIN
+        {
+            get => rep_pin;
+            set => SetProperty(ref rep_pin, value);
         }
         public string SuperPIN
         {
@@ -73,14 +84,31 @@ namespace LawTechTeam.ViewModels
         {
             App.Current.MainPage = new Views.LoginPage();
         }
-        public async void SetUserDetails()
+        public async void GetUserDetails()
         {
-            var user = await GetUserByEmail(email);
-            FirstName = user.FirstName;
-            LastName = user.LastName;
-            Password = new string('*', user.Password.Length);
-            PIN = user.RepresentativePIN;
+            var user = await App.Database.GetUser(UserID);
+            Email = user.Email;
+            Firstname = user.FirstName;
+            Lastname = user.LastName;
+            Password = user.Password;
+            Admin = user.Admin;
+            RepPIN = user.RepresentativePIN;
             SuperPIN = user.SupervisorPIN;
+        }
+        public async void OnSaveDetails()
+        {
+            var item = new RegUserTable()
+            {
+                UserId = UserID,
+                Email = Email,
+                Password = Password,
+                Admin = Admin,
+                FirstName = Firstname,
+                LastName = Lastname,
+                RepresentativePIN = RepPIN,
+                SupervisorPIN = SuperPIN
+            };
+            App.Database.SaveUserAsync(item);
         }
     }
 }
