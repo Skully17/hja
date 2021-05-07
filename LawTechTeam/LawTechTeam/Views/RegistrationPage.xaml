@@ -12,7 +12,7 @@
                 <Image Source="hja_logo.png" Aspect="AspectFit" Margin="0, 0, 0, 20" WidthRequest="125"/>
 
                 <StackLayout Grid.Row="1">
-                    <Entry Placeholder="Email" FontSize="16" x:Name="EntryEmail"/>
+                    <Entry Placeholder="Email" FontSize="16" x:Name="EntryUserEmail"/>
                 </StackLayout>
 
                 <StackLayout Grid.Row="2">
