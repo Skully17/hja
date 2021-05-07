@@ -1,4 +1,5 @@
 ﻿using LawTechTeam.Views;
+using LawTechTeam.Enum;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -15,17 +16,31 @@ namespace LawTechTeam.ViewModels
         public string station;
         public string date;
         public string time;
+        public string modifieddate;
+        public string modifiedtime;
         public string race;
         public string detaineereligion;
         public string racismexperiencedatstation;
         public string detaineeage;
         public string racismexperiencedexample;
         public Enum.YesNoEnum hasexperiencedracisminpast;
+        public int yeshasexperiencedracisminpast;
+        public int nohasexperiencedracisminpast;
         public Enum.YesNoEnum hasexperiencedracismincustody;
+        public int yeshasexperiencedracismincustody;
+        public int nohasexperiencedracismincustody;
         public Enum.GenderEnum gender;
+        public int malegender;
+        public int femalegender;
+        public int othergender;
+        public int pntsgender;
         public Enum.YesNoEnum sustainedinjuries;
+        public int yessustainedinjuries;
+        public int nosustainedinjuries;
         public string injurydetail;
         public Enum.YesNoEnum wasstoppedandsearched;
+        public int yesstoppedandsearched;
+        public int nostoppedandsearched;
         public string stoppedandsearchedreason;
         public string district;
         public bool drugoffence;
@@ -40,15 +55,20 @@ namespace LawTechTeam.ViewModels
         public bool otheroffence;
         public string committedoffence;
 
+        public string updatedracismexperiencedincustody;
+
 
         public Survey Survey { get; set; }
-
+        public Command SaveCommand { get; }
         public Command DeleteSurveyCommand { get; }
 
         public SurveyDetailViewModel()
         {
+            SaveCommand = new Command(OnSave);
             DeleteSurveyCommand = new Command(OnDeleteSurvey);
+            PropertyChanged += (_, __) => SaveCommand.ChangeCanExecute();
         }
+
         public int DisplayCaseID
         {
             get => displaycaseID;
@@ -81,6 +101,16 @@ namespace LawTechTeam.ViewModels
             get => time;
             set => SetProperty(ref time, value);
         }
+        public string ModifiedDate
+        {
+            get => modifieddate;
+            set => SetProperty(ref modifieddate, value);
+        }
+        public string ModifiedTime
+        {
+            get => modifiedtime;
+            set => SetProperty(ref modifiedtime, value);
+        }
         public string DetaineeEthnicity
         {
             get => race;
@@ -111,20 +141,70 @@ namespace LawTechTeam.ViewModels
             get => hasexperiencedracisminpast;
             set => SetProperty(ref hasexperiencedracisminpast, value);
         }
+        public int YesHasExperiencedRacismInPast
+        {
+            get => yeshasexperiencedracisminpast;
+            set => SetProperty(ref yeshasexperiencedracisminpast, value);
+        }
+        public int NoHasExperiencedRacismInPast
+        {
+            get => nohasexperiencedracisminpast;
+            set => SetProperty(ref nohasexperiencedracisminpast, value);
+        }
         public Enum.YesNoEnum HasExperiencedRacismInCustody
         {
             get => hasexperiencedracismincustody;
             set => SetProperty(ref hasexperiencedracismincustody, value);
+        }
+        public int YesHasExperiencedRacismInCustody
+        {
+            get => yeshasexperiencedracismincustody;
+            set => SetProperty(ref yeshasexperiencedracismincustody, value);
+        }
+        public int NoHasExperiencedRacismInCustody
+        {
+            get => nohasexperiencedracismincustody;
+            set => SetProperty(ref nohasexperiencedracismincustody, value);
         }
         public Enum.GenderEnum Gender
         {
             get => gender;
             set => SetProperty(ref gender, value);
         }
+        public int Male
+        {
+            get => malegender;
+            set => SetProperty(ref malegender, value);
+        }
+        public int Female
+        {
+            get => femalegender;
+            set => SetProperty(ref femalegender, value);
+        }
+        public int Other
+        {
+            get => othergender;
+            set => SetProperty(ref othergender, value);
+        }
+        public int PreferNotToSay
+        {
+            get => pntsgender;
+            set => SetProperty(ref pntsgender, value);
+        }
         public Enum.YesNoEnum SustainedInjuries
         {
             get => sustainedinjuries;
             set => SetProperty(ref sustainedinjuries, value);
+        }
+        public int YesSustainedInjuries
+        {
+            get => yessustainedinjuries;
+            set => SetProperty(ref yessustainedinjuries, value);
+        }
+        public int NoSustainedInjuries
+        {
+            get => nosustainedinjuries;
+            set => SetProperty(ref nosustainedinjuries, value);
         }
         public string InjuryDetail
         {
@@ -135,6 +215,16 @@ namespace LawTechTeam.ViewModels
         {
             get => wasstoppedandsearched;
             set => SetProperty(ref wasstoppedandsearched, value);
+        }
+        public int YesStoppedAndSearched
+        {
+            get => yesstoppedandsearched;
+            set => SetProperty(ref yesstoppedandsearched, value);
+        }
+        public int NoStoppedAndSearched
+        {
+            get => nostoppedandsearched;
+            set => SetProperty(ref nostoppedandsearched, value);
         }
         public string StoppedAndSearchedReason
         {
@@ -225,21 +315,34 @@ namespace LawTechTeam.ViewModels
             {
                 Survey = await App.Database.GetSurveysAsync_ID_Asc(surveyId);
                 DisplayCaseID = surveyId;
-                CaseID = Survey.CaseId;
                 Station = Survey.Station;
                 Date = Survey.Date;
                 Time = Survey.Time;
+                ModifiedDate = Survey.ModifiedDate;
+                ModifiedTime = Survey.ModifiedTime;
                 DetaineeEthnicity = Survey.Race;
                 DetaineeReligion = Survey.DetaineeReligion;
                 RacismExperiencedAtStation = Survey.RacismExperiencedAtStation;
                 DetaineeAge = Survey.DetaineeAge;
                 RacismExperiencedExample = Survey.RacismExperiencedExample;
                 HasExperiencedRacismInPast = Survey.HasExperiencedRacismInPast;
+                YesHasExperiencedRacismInPast = Survey.YesHasExperiencedRacismInPast;
+                NoHasExperiencedRacismInPast = Survey.NoHasExperiencedRacismInPast;
                 HasExperiencedRacismInCustody = Survey.HasExperiencedRacismInCustody;
+                YesHasExperiencedRacismInCustody = Survey.YesHasExperiencedRacismInCustody;
+                NoHasExperiencedRacismInCustody = Survey.NoHasExperiencedRacismInCustody;
                 Gender = Survey.Gender;
+                Male = Survey.Male;
+                Female = Survey.Female;
+                Other = Survey.Other;
+                PreferNotToSay = Survey.PreferNotToSay;
                 SustainedInjuries = Survey.SustainedInjuries;
+                YesSustainedInjuries = Survey.YesSustainedInjuries;
+                NoSustainedInjuries = Survey.NoSustainedInjuries;
                 InjuryDetail = Survey.InjuryDetail;
                 WasStoppedAndSearched = Survey.WasStoppedAndSearched;
+                YesStoppedAndSearched = Survey.YesStoppedAndSearched;
+                NoStoppedAndSearched = Survey.NoStoppedAndSearched;
                 StoppedAndSearchedReason = Survey.StoppedAndSearchedReason;
                 District = Survey.District;
                 DrugOffence = Survey.DrugOffence;
@@ -259,6 +362,59 @@ namespace LawTechTeam.ViewModels
             {
                 Debug.WriteLine("Failed to Load Survey");
             }
+        }
+
+        
+        private async void OnSave()
+        {
+            Survey = await App.Database.GetSurveysAsync_ID_Asc(Survey.CaseId);
+            Survey newSurvey = new Survey
+            {
+                CaseId = Survey.CaseId,
+                Station = Survey.Station,
+                Date = Survey.Date,
+                Time = Survey.Time,
+                ModifiedDate = $"{DateTime.Now:dd/MM/yyyy}",
+                ModifiedTime = $"{DateTime.Now:HH:mm}",
+                HasExperiencedRacismInCustody = YesHasExperiencedRacismInCustody > 0 ? YesNoEnum.Yes : NoHasExperiencedRacismInCustody > 0 ? YesNoEnum.No : YesNoEnum.Unanswered,
+                YesHasExperiencedRacismInCustody = YesHasExperiencedRacismInCustody,
+                NoHasExperiencedRacismInCustody = NoHasExperiencedRacismInCustody,
+                RacismExperiencedAtStation = RacismExperiencedAtStation,
+                SustainedInjuries = YesSustainedInjuries > 0 ? YesNoEnum.Yes : NoSustainedInjuries > 0 ? YesNoEnum.No : YesNoEnum.Unanswered,
+                YesSustainedInjuries = YesSustainedInjuries,
+                NoSustainedInjuries = NoSustainedInjuries,
+                InjuryDetail = InjuryDetail,
+                DetaineeAge = DetaineeAge,
+                Gender = Male > 0 ? GenderEnum.Male : Female > 0 ? GenderEnum.Female : Other > 0 ? GenderEnum.Other : PreferNotToSay > 0 ? GenderEnum.PreferNotToSay : GenderEnum.Unanswered,
+                Male = Male,
+                Female = Female,
+                Other = Other,
+                PreferNotToSay = PreferNotToSay,
+                DetaineeReligion = DetaineeReligion,
+                Race = DetaineeEthnicity,
+                District = District,
+                DrugOffence = DrugOffence,
+                WeaponOffence = WeaponOffence,
+                MinorAssaultOffence = MinorAssaultOffence,
+                SeriousAssaultOffence = SeriousAssaultOffence,
+                SexualOffence = SexualOffence,
+                PublicOrderOffence = PublicOrderOffence,
+                TheftOrRobberyOffence = TheftOrRobberyOffence,
+                Fraud = Fraud,
+                Driving = Driving,
+                OtherOffence = OtherOffence,
+                CommittedOffence = CommittedOffence,
+                YesHasExperiencedRacismInPast = YesHasExperiencedRacismInPast,
+                NoHasExperiencedRacismInPast = NoHasExperiencedRacismInPast,
+                RacismExperiencedExample = RacismExperiencedExample,
+                YesStoppedAndSearched = YesStoppedAndSearched,
+                NoStoppedAndSearched = NoStoppedAndSearched,
+                StoppedAndSearchedReason = StoppedAndSearchedReason,
+            };
+            
+            await App.Database.SaveSurveyAsync(newSurvey);
+            
+
         }
     }
 }
