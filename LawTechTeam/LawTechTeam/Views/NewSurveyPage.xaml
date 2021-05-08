@@ -34,7 +34,7 @@
 	            <RadioButton Content="No" IsChecked="{Binding NoSustainedInjuries}" Style="{DynamicResource DefaultTextStyle}" GroupName="YesNoSustainedInjuries" />
                 <Label Padding="3,10,0,0" Text="If yes, please explain in more detail" Style="{DynamicResource QuestionTextStyle}" />
 	            <Entry Text="{Binding SustainedInjuries, Mode=TwoWay}" FontSize="Medium" Margin="0" />
-                <Label Padding="3,10,0,0" Text="Age" Style="{DynamicResource QuestionTextStyle}" />
+                <Label Padding="3,10,0,0" Text="Age Range" Style="{DynamicResource QuestionTextStyle}" />
                 <Picker Title="Please select one" HorizontalOptions="FillAndExpand" SelectedItem="{Binding DetaineeAge}" Style="{DynamicResource DefaultTextStyle}">
 					<Picker.Items>
 						<x:String>Under 18</x:String>
