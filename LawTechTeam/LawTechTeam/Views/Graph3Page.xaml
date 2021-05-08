@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
     x:Class="LawTechTeam.Views.Graph3Page"
-    Title="Injuries In Custody">
+    Title="Injuries Under Arrest">
 
     <ScrollView>
         <StackLayout>
