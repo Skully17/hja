@@ -9,7 +9,7 @@
     <ScrollView>
         <StackLayout>
             <Label 
-                Text="&quot;Have you sustained injuries in custody?&quot; separated by discrimination experience"
+                Text="&quot;Have you sustained injuries while under arrest?&quot; separated by discrimination experience"
                 FontSize="Medium"
                 HorizontalTextAlignment="Center"
                 FontAttributes="Bold"

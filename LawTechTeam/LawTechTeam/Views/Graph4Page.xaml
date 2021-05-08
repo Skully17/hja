@@ -9,7 +9,7 @@
     <ScrollView>
         <StackLayout>
             <Label 
-                Text="&quot;Have you ever experienced racism in the past?&quot; "
+                Text="&quot;Have you ever experienced racism from police in the past?&quot; "
                 FontSize="Medium"
                 HorizontalTextAlignment="Center"
                 FontAttributes="Bold"

@@ -25,7 +25,7 @@ namespace LawTechTeam.Views
             var db = new SQLiteConnection(dbpath);
             db.CreateTable<RegUserTable>();
 
-            if (EntryEmail.Text == null || EntryUserPassword.Text == null || EntryUserAdmin.Text == null || EntryFirstName.Text == null || EntryLastName.Text == null || EntryRepPin.Text == null)
+            if (EntryUserEmail.Text == null || EntryUserPassword.Text == null || EntryUserAdmin.Text == null || EntryFirstName.Text == null || EntryLastName.Text == null || EntryRepPin.Text == null)
             {
                 Application.Current.MainPage.DisplayAlert("Error", "Not all required details have been entered", "Ok");
             }
@@ -34,7 +34,7 @@ namespace LawTechTeam.Views
             { 
                 var item = new RegUserTable()
                 {
-                    Email = EntryEmail.Text,
+                    Email = EntryUserEmail.Text,
                     Password = EntryUserPassword.Text,
                     Admin = EntryUserAdmin.Text,
                     FirstName = EntryFirstName.Text,

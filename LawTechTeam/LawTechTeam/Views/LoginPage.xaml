@@ -15,7 +15,7 @@
                     </Grid.RowDefinitions>
                     <Entry Placeholder="Email" Text="{Binding Email}" Margin="10, 5, 10, 5" Grid.Row="0"/>
                     <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True" Margin="10, 5, 10, 5" Grid.Row="1"/>
-                    <Button Text="Login" Margin="10, 5, 10, 5" Command="{Binding LoginCommand}" Grid.Row="2"/>
+                    <Button Text="Log in" Margin="10, 5, 10, 5" Command="{Binding LoginCommand}" Grid.Row="2"/>
                     <Button Text="Create Account" Margin="10, 5, 10, 5" BackgroundColor="#fafafa" BorderWidth="1" BorderColor="Black" TextColor="{StaticResource Primary}" Command="{Binding RegisterCommand}" Grid.Row="3"/>
                 </Grid>
             </StackLayout>
