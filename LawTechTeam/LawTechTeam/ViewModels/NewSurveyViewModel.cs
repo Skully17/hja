@@ -9,7 +9,7 @@ namespace LawTechTeam.ViewModels
     {
         private string _station;
         private string _detaineeAge;
-        private string _detaineeRace;
+        private string _detaineeEthnicity;
         private int _detaineeMaleGender;
         private int _detaineeFemaleGender;
         private int _detaineeOtherGender;
@@ -34,7 +34,7 @@ namespace LawTechTeam.ViewModels
         private bool _theftOrRobbery;
         private bool _fraud;
         private bool _driving;
-        private bool _other;
+        private bool _otheroffence;
         private int _noHasHadInjuryInCustody;
         private int _noHasExperiencedRacismInCustody;
         private int _noHasExperiencedRacism;
@@ -42,7 +42,6 @@ namespace LawTechTeam.ViewModels
 
         public NewSurveyViewModel()
         {
-            StationPopupCommand = new Command(OnStationPopup);
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
             PropertyChanged += (_, __) => SaveCommand.ChangeCanExecute();
@@ -51,7 +50,7 @@ namespace LawTechTeam.ViewModels
         private bool ValidateSave()
         {
             //return !String.IsNullOrWhiteSpace(DetaineeAge)
-            //    && detaineeRace > 0
+            //    && detaineeEthnicity > 0
             //    && !String.IsNullOrEmpty(HasExperiencedRacism)
             //    && !String.IsNullOrEmpty(RacismExperience)
             //    && !String.IsNullOrEmpty(RacismExperiencedAtStation)
@@ -115,8 +114,8 @@ namespace LawTechTeam.ViewModels
 
         public bool OtherOffence
         {
-            get => _other;
-            set => SetProperty(ref _other, value);
+            get => _otheroffence;
+            set => SetProperty(ref _otheroffence, value);
         }
 
         public string StoppedAndSearchedReason
@@ -241,8 +240,8 @@ namespace LawTechTeam.ViewModels
 
         public string DetaineeEthnicity
         {
-            get => _detaineeRace;
-            set => SetProperty(ref _detaineeRace, value);
+            get => _detaineeEthnicity;
+            set => SetProperty(ref _detaineeEthnicity, value);
         }
 
         public string SustainedInjuries
@@ -251,53 +250,74 @@ namespace LawTechTeam.ViewModels
             set => SetProperty(ref _injuryDetail, value);
         }
 
-        public Command StationPopupCommand { get; }
         public Command SaveCommand { get; }
         public Command CancelCommand { get; }
 
-        private async void OnStationPopup()
+        private async void OnSave()
         {
-            var result = await Application.Current.MainPage.DisplayPromptAsync("Question 1", "What's your name?");
+            var result = await Application.Current.MainPage.DisplayPromptAsync("Police Station", "What police station does this survey relate to?", "Save", "Cancel");
+            
+            if (result == "")
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "You must enter a station name", "Ok");
+            }
+
+            else
+            {
+                Survey newSurvey = new Survey
+                {
+                    Station = result,
+                    Date = $"{DateTime.Now:dd/MM/yyyy}",
+                    Time = $"{DateTime.Now:HH:mm}",
+                    ModifiedDate = $"{DateTime.Now:dd/MM/yyyy}",
+                    ModifiedTime = $"{DateTime.Now:HH:mm}",
+                    DetaineeAge = DetaineeAge,
+                    DetaineeReligion = DetaineeReligion,
+                    Race = DetaineeEthnicity,
+                    District = District,
+                    RacismExperiencedAtStation = RacismExperiencedAtStation,
+                    RacismExperiencedExample = RacismExperience,
+                    Gender = Male > 0 ? GenderEnum.Male : Female > 0 ? GenderEnum.Female : Other > 0 ? GenderEnum.Other : PreferNotToSay > 0 ? GenderEnum.PreferNotToSay : GenderEnum.Unanswered,
+                    Male = Male,
+                    Female = Female,
+                    Other = Other,
+                    PreferNotToSay = PreferNotToSay,
+                    HasExperiencedRacismInPast = YesHasExperiencedRacism > 0 ? YesNoEnum.Yes : NoHasExperiencedRacism > 0 ? YesNoEnum.No : YesNoEnum.Unanswered,
+                    YesHasExperiencedRacismInPast = YesHasExperiencedRacism,
+                    NoHasExperiencedRacismInPast = NoHasExperiencedRacism,
+                    HasExperiencedRacismInCustody = YesHasExperiencedRacismInCustody > 0 ? YesNoEnum.Yes : NoHasExperiencedRacismInCustody > 0 ? YesNoEnum.No : YesNoEnum.Unanswered,
+                    YesHasExperiencedRacismInCustody = YesHasExperiencedRacismInCustody,
+                    NoHasExperiencedRacismInCustody = NoHasExperiencedRacismInCustody,
+                    SustainedInjuries = YesSustainedInjuries > 0 ? YesNoEnum.Yes : NoSustainedInjuries > 0 ? YesNoEnum.No : YesNoEnum.Unanswered,
+                    YesSustainedInjuries = YesSustainedInjuries,
+                    NoSustainedInjuries = NoSustainedInjuries,
+                    InjuryDetail = SustainedInjuries,
+                    WasStoppedAndSearched = YesStoppedAndSearched > 0 ? YesNoEnum.Yes : NoStoppedAndSearched > 0 ? YesNoEnum.No : YesNoEnum.Unanswered,
+                    YesStoppedAndSearched = YesStoppedAndSearched,
+                    NoStoppedAndSearched = NoStoppedAndSearched,
+                    StoppedAndSearchedReason = StoppedAndSearchedReason,
+                    DrugOffence = DrugPossession,
+                    Fraud = Fraud,
+                    MinorAssaultOffence = MinorAssault,
+                    Driving = Driving,
+                    PublicOrderOffence = PublicOrderOffences,
+                    SeriousAssaultOffence = SeriousAssault,
+                    TheftOrRobberyOffence = TheftOrRobbery,
+                    SexualOffence = SexualOffences,
+                    WeaponOffence = WeaponPossession,
+                    OtherOffence = OtherOffence,
+                    CommittedOffence = CommittedOffence
+                };
+
+                await App.Database.SaveSurveyAsync(newSurvey);
+
+                // This will pop the current page off the navigation stack
+                await Shell.Current.GoToAsync("..");
+            }
         }
 
         private async void OnCancel()
         {
-            // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
-        }
-
-        private async void OnSave()
-        {
-            Survey newSurvey = new Survey
-            {
-                Station = "London Police Station",
-                Date = $"{DateTime.Now:dd/MM/yyyy}",
-                Time = $"{DateTime.Now:HH:mm}",
-                DetaineeAge = DetaineeAge,
-                Race = DetaineeEthnicity,
-                RacismExperiencedAtStation = RacismExperiencedAtStation,
-                RacismExperiencedExample = RacismExperience,
-                Gender = Male > 0 ? GenderEnum.Male : Female > 0 ? GenderEnum.Female : Other > 0 ? GenderEnum.Other : PreferNotToSay > 0 ? GenderEnum.PreferNotToSay : GenderEnum.Default,
-                HasExperiencedRacismInPast = YesHasExperiencedRacism > 0 ? YesNoEnum.Yes : NoHasExperiencedRacism > 0 ? YesNoEnum.No : YesNoEnum.Default,
-                HasExperiencedRacismInCustody = YesHasExperiencedRacismInCustody > 0 ? YesNoEnum.Yes : NoHasExperiencedRacismInCustody > 0 ? YesNoEnum.No : YesNoEnum.Default,
-                SustainedInjuries = YesSustainedInjuries > 0 ? YesNoEnum.Yes : NoSustainedInjuries > 0 ? YesNoEnum.No : YesNoEnum.Default,
-                InjuryDetail = SustainedInjuries,
-                WasStoppedAndSearched = YesStoppedAndSearched > 0 ? YesNoEnum.Yes : NoStoppedAndSearched > 0 ? YesNoEnum.No : YesNoEnum.Default,
-                StoppedAndSearchedReason = StoppedAndSearchedReason,
-                DrugOffence = DrugPossession,
-                Fraud = Fraud,
-                MinorAssaultOffence = MinorAssault,
-                Driving = Driving,
-                PublicOrderOffence = PublicOrderOffences,
-                SeriousAssaultOffence = SeriousAssault,
-                TheftOrRobberyOffence = TheftOrRobbery,
-                SexualOffence = SexualOffences,
-                WeaponOffence = WeaponPossession,
-                Other = OtherOffence
-            };
-
-            await App.Database.SaveSurveyAsync(newSurvey);
-
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
         }

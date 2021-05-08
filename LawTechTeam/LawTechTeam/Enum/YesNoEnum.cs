@@ -2,7 +2,7 @@
 {
     public enum YesNoEnum
     {
-        Default,
+        Unanswered,
         Yes,
         No
     }

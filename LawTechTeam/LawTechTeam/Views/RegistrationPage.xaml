@@ -32,11 +32,11 @@
                 </StackLayout>
 
                 <StackLayout Grid.Row="6">
-                    <Entry Text="{Binding RepPIN, Mode=TwoWay}" Placeholder="Police Station Rep PIN" FontSize="16"/>
+                    <Entry Text="{Binding RepPIN, Mode=TwoWay}" Placeholder="Police Station Representative PIN" FontSize="16"/>
                 </StackLayout>
                 
                 <StackLayout Grid.Row="7">
-                    <Entry Text="{Binding SuperPIN, Mode=TwoWay}" Placeholder="Supervisor Pin" FontSize="16"/>
+                    <Entry Text="{Binding SuperPIN, Mode=TwoWay}" Placeholder="Supervisor PIN" FontSize="16"/>
                 </StackLayout>
 
                 <StackLayout Grid.Row="8" Orientation="Horizontal">

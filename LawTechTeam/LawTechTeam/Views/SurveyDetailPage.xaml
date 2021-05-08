@@ -4,36 +4,164 @@
              x:Class="LawTechTeam.Views.SurveyDetailPage"
              Title="{Binding Title}">
     
-
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Delete" Command="{Binding DeleteSurveyCommand}" CommandParameter="{Binding Survey}" />
     </ContentPage.ToolbarItems>
-    <StackLayout Spacing="20" Padding="15">
-        <Label Style="{DynamicResource DefaultTextStyle}">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="Case ID:   "/>
-                    <Span Text="{Binding CaseID}"/>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-        <Label Style="{DynamicResource DefaultTextStyle}">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="Police Station:   "/>
-                    <Span Text="{Binding Station}"/>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-        <Label Style="{DynamicResource DefaultTextStyle}">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="Date:   "/>
-                    <Span Text="{Binding Date}"/>
-                    <Span Text="   "/>
-                    <Span Text="{Binding Time}"/>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
+
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="15">
+            <StackLayout Orientation="Horizontal">
+                <Label Style="{DynamicResource DefaultTextStyle}" Text="Survey ID:  "/>
+                <Label Style="{DynamicResource DefaultTextStyle}" Text="{Binding DisplayCaseID}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Style="{DynamicResource DefaultTextStyle}" Text="Police Station:  "/>
+                <Label Style="{DynamicResource DefaultTextStyle}" Text="{Binding Station}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Style="{DynamicResource DefaultTextStyle}" Text="Creation Date:  "/>
+                <Label Style="{DynamicResource DefaultTextStyle}" Text="{Binding Date}"/>
+                <Label Style="{DynamicResource DefaultTextStyle}" Text="{Binding Time}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Style="{DynamicResource DefaultTextStyle}" Text="Last Modified:  "/>
+                <Label Style="{DynamicResource DefaultTextStyle}" Text="{Binding ModifiedDate}"/>
+                <Label Style="{DynamicResource DefaultTextStyle}" Text="{Binding ModifiedTime}"/>
+            </StackLayout>
+
+            <BoxView HeightRequest="1" WidthRequest="1" Color="Gray"/>
+
+            <StackLayout Spacing="3" Padding="10, 5, 10, 0"> <!--Questions and Answers-->
+                <Label Text="Do you feel like you have experienced any racism while under arrest?" Style="{DynamicResource QuestionTextStyle}" />
+                <RadioButton Content="Yes" IsChecked="{Binding YesHasExperiencedRacismInCustody, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" GroupName="YesNoHasExperiencedRacismInCustody" />
+                <RadioButton Content="No" IsChecked="{Binding NoHasExperiencedRacismInCustody, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" GroupName="YesNoHasExperiencedRacismInCustody" />
+
+                <Label Padding="0,10,0,0" Text="If yes, please tell us more and give us an example of what was said or done" Style="{DynamicResource QuestionTextStyle}" />
+                <Entry Text="{Binding RacismExperiencedAtStation}" Style="{DynamicResource DefaultTextStyle}" />
+
+                <Label Padding="0,10,0,0" Text="Have you sustained any injuries whilst under arrest?" Style="{DynamicResource QuestionTextStyle}" />
+                <RadioButton Content="Yes" IsChecked="{Binding YesSustainedInjuries, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" GroupName="YesNoSustainedInjuries" />
+                <RadioButton Content="No" IsChecked="{Binding NoSustainedInjuries, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" GroupName="YesNoSustainedInjuries" />
+
+                <Label Padding="0,10,0,0" Text="If yes, please explain in more detail" Style="{DynamicResource QuestionTextStyle}" />
+                <Entry Text="{Binding InjuryDetail}" Style="{DynamicResource DefaultTextStyle}" />
+                
+                <Label Padding="0,10,0,0" Text="Age" Style="{DynamicResource QuestionTextStyle}" />
+                <Picker Title="Please select one" HorizontalOptions="FillAndExpand" SelectedItem="{Binding DetaineeAge}" Style="{DynamicResource DefaultTextStyle}">
+                    <Picker.Items>
+                        <x:String>Under 18</x:String>
+                        <x:String>18 - 24</x:String>
+                        <x:String>25 - 34</x:String>
+                        <x:String>35 - 44</x:String>
+                        <x:String>45 - 54</x:String>
+                        <x:String>55+</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Padding="0,10,0,0" Text="Gender" Style="{DynamicResource QuestionTextStyle}" />
+                <RadioButton Content="Male" IsChecked="{Binding Male, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" GroupName="Gender" />
+                <RadioButton Content="Female" IsChecked="{Binding Female, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" GroupName="Gender" />
+                <RadioButton Content="Other" IsChecked="{Binding Other, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" GroupName="Gender" />
+                <RadioButton Content="Prefer not to say" Value="{Binding PreferNotToSay, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" GroupName="Gender" />
+
+                <Label Padding="0,10,0,0" Text="Do you follow a religion, if so, which one?" Style="{DynamicResource QuestionTextStyle}" />
+                <Picker Title="Please select one" HorizontalOptions="FillAndExpand" SelectedItem="{Binding DetaineeReligion, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}">
+                    <Picker.Items>
+                        <x:String>Christianity</x:String>
+                        <x:String>Islam</x:String>
+                        <x:String>Hinduism</x:String>
+                        <x:String>Buddhism</x:String>
+                        <x:String>Sikhism</x:String>
+                        <x:String>Judaism</x:String>
+                        <x:String>No Religion</x:String>
+                        <x:String>Other</x:String>
+                        <x:String>Prefer not to say</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Padding="0,10,0,0" Text="Which ethnic group would you describe yourself as?" Style="{DynamicResource QuestionTextStyle}" />
+                <Picker Title="Please select one" HorizontalOptions="FillAndExpand" SelectedItem="{Binding DetaineeEthnicity, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}">
+                    <Picker.Items>
+                        <x:String>White</x:String>
+                        <x:String>Mixed or multiple ethnic groups</x:String>
+                        <x:String>Asian or Asian British</x:String>
+                        <x:String>Black, African, Caribbean or Black British</x:String>
+                        <x:String>Other</x:String>
+                        <x:String>Prefer not to say</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Padding="0,10,0,0" Text="What is the outward code of your area? (this is first the two to four characters before the space in your postcode)" Style="{DynamicResource QuestionTextStyle}" />
+                <Entry Text="{Binding District, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" TextTransform="Uppercase" />
+                
+                <Label Padding="0,10,0,10" Text="What offence(s) have you committed or believed to have committed?" Style="{DynamicResource QuestionTextStyle}" />
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                    <Label Text="Drug possession" HorizontalOptions="StartAndExpand" Style="{DynamicResource DefaultTextStyle}"></Label>
+                    <CheckBox IsChecked="{Binding DrugOffence, Mode=TwoWay}" HorizontalOptions="End" HeightRequest="50"></CheckBox>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                    <Label Text="Weapon possession" HorizontalOptions="StartAndExpand" Style="{DynamicResource DefaultTextStyle}"></Label>
+                    <CheckBox IsChecked="{Binding WeaponOffence, Mode=TwoWay}" HorizontalOptions="End" HeightRequest="50"></CheckBox>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                    <Label Text="Minor assault" HorizontalOptions="StartAndExpand" Style="{DynamicResource DefaultTextStyle}"></Label>
+                    <CheckBox IsChecked="{Binding MinorAssaultOffence, Mode=TwoWay}" HorizontalOptions="End" HeightRequest="50"></CheckBox>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                    <Label Text="Serious assault" HorizontalOptions="StartAndExpand" Style="{DynamicResource DefaultTextStyle}"></Label>
+                    <CheckBox IsChecked="{Binding SeriousAssaultOffence, Mode=TwoWay}" HorizontalOptions="End" HeightRequest="50"></CheckBox>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                    <Label Text="Sexual offences" HorizontalOptions="StartAndExpand" Style="{DynamicResource DefaultTextStyle}"></Label>
+                    <CheckBox IsChecked="{Binding SexualOffence, Mode=TwoWay}" HorizontalOptions="End" HeightRequest="50"></CheckBox>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                    <Label Text="Public order offences" HorizontalOptions="StartAndExpand" Style="{DynamicResource DefaultTextStyle}"></Label>
+                    <CheckBox IsChecked="{Binding PublicOrderOffence, Mode=TwoWay}" HorizontalOptions="End" HeightRequest="50"></CheckBox>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                    <Label Text="Theft/robbery" HorizontalOptions="StartAndExpand" Style="{DynamicResource DefaultTextStyle}"></Label>
+                    <CheckBox IsChecked="{Binding TheftOrRobberyOffence, Mode=TwoWay}" HorizontalOptions="End" HeightRequest="50"></CheckBox>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                    <Label Text="Fraud" HorizontalOptions="StartAndExpand" Style="{DynamicResource DefaultTextStyle}"></Label>
+                    <CheckBox IsChecked="{Binding Fraud, Mode=TwoWay}" HorizontalOptions="End" HeightRequest="50"></CheckBox>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                    <Label Text="Driving" HorizontalOptions="StartAndExpand" Style="{DynamicResource DefaultTextStyle}"></Label>
+                    <CheckBox IsChecked="{Binding Driving, Mode=TwoWay}" HorizontalOptions="End" HeightRequest="50"></CheckBox>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                    <Label Text="Other" HorizontalOptions="StartAndExpand" Style="{DynamicResource DefaultTextStyle}"></Label>
+                    <CheckBox IsChecked="{Binding OtherOffence, Mode=TwoWay}" HorizontalOptions="End" HeightRequest="50"></CheckBox>
+                </StackLayout>
+                <Label Text="If other, what offence(s) have you or believed to have committed" Style="{DynamicResource QuestionTextStyle}" />
+                <Entry Text="{Binding CommittedOffence, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" />
+                
+                <Label Padding="0,10,0,0" Text="Have you experienced racism from the police in the past?" Style="{DynamicResource QuestionTextStyle}" />
+                <RadioButton Content="Yes" IsChecked="{Binding YesHasExperiencedRacismInPast, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" GroupName="YesNoHasExperiencedRacism" />
+                <RadioButton Content="No" IsChecked="{Binding NoHasExperiencedRacismInPast, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" GroupName="YesNoHasExperiencedRacism" />
+
+                <Label Padding="0,10,0,0" Text="If yes, please give a short summary of any racism you've experienced in the past" Style="{DynamicResource QuestionTextStyle}" />
+                <Entry Text="{Binding RacismExperiencedExample, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" />
+                
+                <Label Padding="0,10,0,0" Text="Were you stopped and searched prior to your arrest?" Style="{DynamicResource QuestionTextStyle}" />
+                <RadioButton Content="Yes" IsChecked="{Binding YesStoppedAndSearched, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" GroupName="YesNoStoppedAndSearched" />
+                <RadioButton Content="No" IsChecked="{Binding NoStoppedAndSearched, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}" GroupName="YesNoStoppedAndSearched" />
+
+                <Label Padding="0,10,0,0" Text="If yes, what reasoning did the police officer(s) give for the stop and search?" Style="{DynamicResource QuestionTextStyle}" />
+                <Picker Title="Please select one" HorizontalOptions="FillAndExpand" SelectedItem="{Binding StoppedAndSearchedReason, Mode=TwoWay}" Style="{DynamicResource DefaultTextStyle}">
+                    <Picker.Items>
+                        <x:String>Suspicious behaviour</x:String>
+                        <x:String>Suspected weapon</x:String>
+                        <x:String>Suspected drugs</x:String>
+                        <x:String>Identified as a suspect</x:String>
+                        <x:String>No reason given</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Button Text="Save Changes" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
