@@ -19,9 +19,9 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
             />
-            <Button Text="Discrimination In Custody" Command="{Binding GraphClicked}" CommandParameter="1"></Button>
+            <Button Text="Discrimination Under Arrest" Command="{Binding GraphClicked}" CommandParameter="1"></Button>
             <Button Text="Gender Distribution" Command="{Binding GraphClicked}" CommandParameter="2"></Button>
-            <Button Text="Injuries In Custody" Command="{Binding GraphClicked}" CommandParameter="3"></Button>
+            <Button Text="Injuries Under Arrest" Command="{Binding GraphClicked}" CommandParameter="3"></Button>
             <Button Text="Past Racial Discrimination" Command="{Binding GraphClicked}" CommandParameter="4"></Button>
         </StackLayout>
     </ScrollView>

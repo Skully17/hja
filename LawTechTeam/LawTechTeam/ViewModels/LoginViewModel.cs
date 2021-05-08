@@ -34,7 +34,7 @@ namespace LawTechTeam.ViewModels
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    var result = await Application.Current.MainPage.DisplayAlert("Error", "Failed User Name and Password", "", "Ok");
+                    var result = await Application.Current.MainPage.DisplayAlert("Error", "Incorrect email or password", "", "Ok");
 
                     if (result)
                         //await Navigation.PushAsync(new LoginPage());

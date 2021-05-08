@@ -9,7 +9,7 @@
     <ScrollView>
         <StackLayout>
             <Label 
-                Text="&quot;I feel I have been racially discriminated against in custody&quot; by gender"
+                Text="&quot;I feel I have experienced racism while under arrest&quot; by gender"
                 FontSize="Medium"
                 HorizontalTextAlignment="Center"
                 FontAttributes="Bold"
